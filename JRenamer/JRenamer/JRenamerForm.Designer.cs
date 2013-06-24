@@ -1,4 +1,4 @@
-﻿namespace Files
+﻿namespace JRenamer
 {
     partial class JRenamerForm
     {
@@ -34,29 +34,29 @@
             this.buttonChangeDir = new System.Windows.Forms.Button();
             this.textBoxCurrentDirectory = new System.Windows.Forms.TextBox();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.panelDirectories = new System.Windows.Forms.Panel();
             this.dataGridViewFiles = new System.Windows.Forms.DataGridView();
             this.buttonSelectInvert = new System.Windows.Forms.Button();
             this.buttonSelectNone = new System.Windows.Forms.Button();
             this.buttonSelectAll = new System.Windows.Forms.Button();
             this.labelSelect = new System.Windows.Forms.Label();
             this.buttonCreate = new System.Windows.Forms.Button();
-            this.checkedListBoxFiles = new System.Windows.Forms.CheckedListBox();
             this.comboBoxMask = new System.Windows.Forms.ComboBox();
             this.labelMask = new System.Windows.Forms.Label();
             this.labelFiles = new System.Windows.Forms.Label();
             this.contextMenuStripCreate = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemCSV = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelDirectories = new System.Windows.Forms.Panel();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTSV = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSpace = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemCSV = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBoxShowMasked = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
+            this.panelDirectories.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiles)).BeginInit();
             this.contextMenuStripCreate.SuspendLayout();
-            this.panelDirectories.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelDirectory
@@ -118,13 +118,13 @@
             // 
             // splitContainer.Panel2
             // 
+            this.splitContainer.Panel2.Controls.Add(this.checkBoxShowMasked);
             this.splitContainer.Panel2.Controls.Add(this.dataGridViewFiles);
             this.splitContainer.Panel2.Controls.Add(this.buttonSelectInvert);
             this.splitContainer.Panel2.Controls.Add(this.buttonSelectNone);
             this.splitContainer.Panel2.Controls.Add(this.buttonSelectAll);
             this.splitContainer.Panel2.Controls.Add(this.labelSelect);
             this.splitContainer.Panel2.Controls.Add(this.buttonCreate);
-            this.splitContainer.Panel2.Controls.Add(this.checkedListBoxFiles);
             this.splitContainer.Panel2.Controls.Add(this.comboBoxMask);
             this.splitContainer.Panel2.Controls.Add(this.labelMask);
             this.splitContainer.Panel2.Controls.Add(this.labelFiles);
@@ -133,15 +133,30 @@
             this.splitContainer.SplitterDistance = 270;
             this.splitContainer.TabIndex = 4;
             // 
+            // panelDirectories
+            // 
+            this.panelDirectories.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelDirectories.Controls.Add(this.buttonChangeDir);
+            this.panelDirectories.Controls.Add(this.labelDirectory);
+            this.panelDirectories.Controls.Add(this.listBoxDirectory);
+            this.panelDirectories.Controls.Add(this.textBoxCurrentDirectory);
+            this.panelDirectories.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDirectories.Location = new System.Drawing.Point(0, 0);
+            this.panelDirectories.Name = "panelDirectories";
+            this.panelDirectories.Size = new System.Drawing.Size(270, 496);
+            this.panelDirectories.TabIndex = 4;
+            // 
             // dataGridViewFiles
             // 
             this.dataGridViewFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewFiles.Location = new System.Drawing.Point(173, 87);
+            this.dataGridViewFiles.Location = new System.Drawing.Point(3, 87);
             this.dataGridViewFiles.Name = "dataGridViewFiles";
-            this.dataGridViewFiles.Size = new System.Drawing.Size(350, 367);
+            this.dataGridViewFiles.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dataGridViewFiles.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewFiles.Size = new System.Drawing.Size(520, 367);
             this.dataGridViewFiles.TabIndex = 9;
             // 
             // buttonSelectInvert
@@ -195,16 +210,6 @@
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
-            // checkedListBoxFiles
-            // 
-            this.checkedListBoxFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.checkedListBoxFiles.FormattingEnabled = true;
-            this.checkedListBoxFiles.Location = new System.Drawing.Point(3, 87);
-            this.checkedListBoxFiles.Name = "checkedListBoxFiles";
-            this.checkedListBoxFiles.Size = new System.Drawing.Size(164, 364);
-            this.checkedListBoxFiles.TabIndex = 3;
-            // 
             // comboBoxMask
             // 
             this.comboBoxMask.FormattingEnabled = true;
@@ -236,58 +241,57 @@
             // contextMenuStripCreate
             // 
             this.contextMenuStripCreate.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemCSV,
             this.toolStripMenuItem1,
             this.toolStripMenuItemTSV,
-            this.toolStripMenuItemSpace});
+            this.toolStripMenuItemSpace,
+            this.toolStripMenuItemCSV});
             this.contextMenuStripCreate.Name = "contextMenuStripCreate";
-            this.contextMenuStripCreate.Size = new System.Drawing.Size(242, 114);
+            this.contextMenuStripCreate.ShowImageMargin = false;
+            this.contextMenuStripCreate.Size = new System.Drawing.Size(217, 92);
             // 
-            // toolStripMenuItemCSV
+            // toolStripMenuItem1
             // 
-            this.toolStripMenuItemCSV.Name = "toolStripMenuItemCSV";
-            this.toolStripMenuItemCSV.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItemCSV.Text = "Comma Separated Values (CSV)";
-            // 
-            // panelDirectories
-            // 
-            this.panelDirectories.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelDirectories.Controls.Add(this.buttonChangeDir);
-            this.panelDirectories.Controls.Add(this.labelDirectory);
-            this.panelDirectories.Controls.Add(this.listBoxDirectory);
-            this.panelDirectories.Controls.Add(this.textBoxCurrentDirectory);
-            this.panelDirectories.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDirectories.Location = new System.Drawing.Point(0, 0);
-            this.panelDirectories.Name = "panelDirectories";
-            this.panelDirectories.Size = new System.Drawing.Size(270, 496);
-            this.panelDirectories.TabIndex = 4;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
+            this.toolStripMenuItem1.Text = "One Per Line (TXT)";
             // 
             // toolStripMenuItemTSV
             // 
             this.toolStripMenuItemTSV.Name = "toolStripMenuItemTSV";
-            this.toolStripMenuItemTSV.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItemTSV.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemTSV.Text = "Tab Separated Values (TXT)";
             // 
             // toolStripMenuItemSpace
             // 
             this.toolStripMenuItemSpace.Name = "toolStripMenuItemSpace";
-            this.toolStripMenuItemSpace.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItemSpace.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemSpace.Text = "Space Separated Values (TXT)";
             // 
-            // toolStripMenuItem1
+            // toolStripMenuItemCSV
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem1.Text = "One Per Line (TXT)";
+            this.toolStripMenuItemCSV.Name = "toolStripMenuItemCSV";
+            this.toolStripMenuItemCSV.Size = new System.Drawing.Size(216, 22);
+            this.toolStripMenuItemCSV.Text = "Comma Separated Values (CSV)";
             // 
-            // FilesForm
+            // checkBoxShowMasked
+            // 
+            this.checkBoxShowMasked.AutoSize = true;
+            this.checkBoxShowMasked.Location = new System.Drawing.Point(173, 32);
+            this.checkBoxShowMasked.Name = "checkBoxShowMasked";
+            this.checkBoxShowMasked.Size = new System.Drawing.Size(93, 17);
+            this.checkBoxShowMasked.TabIndex = 10;
+            this.checkBoxShowMasked.Text = "Show masked";
+            this.checkBoxShowMasked.UseVisualStyleBackColor = true;
+            this.checkBoxShowMasked.CheckedChanged += new System.EventHandler(this.checkBoxShowMasked_CheckedChanged);
+            // 
+            // JRenamerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 520);
             this.Controls.Add(this.splitContainer);
             this.MinimumSize = new System.Drawing.Size(400, 300);
-            this.Name = "FilesForm";
+            this.Name = "JRenamerForm";
             this.Text = "Files";
             this.Load += new System.EventHandler(this.FilesForm_Load);
             this.splitContainer.Panel1.ResumeLayout(false);
@@ -295,10 +299,10 @@
             this.splitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiles)).EndInit();
-            this.contextMenuStripCreate.ResumeLayout(false);
             this.panelDirectories.ResumeLayout(false);
             this.panelDirectories.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiles)).EndInit();
+            this.contextMenuStripCreate.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -310,7 +314,6 @@
         private System.Windows.Forms.Button buttonChangeDir;
         private System.Windows.Forms.TextBox textBoxCurrentDirectory;
         private System.Windows.Forms.SplitContainer splitContainer;
-        private System.Windows.Forms.CheckedListBox checkedListBoxFiles;
         private System.Windows.Forms.ComboBox comboBoxMask;
         private System.Windows.Forms.Label labelMask;
         private System.Windows.Forms.Label labelFiles;
@@ -326,6 +329,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemTSV;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSpace;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.CheckBox checkBoxShowMasked;
     }
 }
 
