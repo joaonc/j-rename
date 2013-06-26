@@ -21,6 +21,7 @@ namespace JRenamer
 
         private void FilesForm_Load(object sender, EventArgs e)
         {
+            // Files
             filesOperator = new FilesOperator();
 
             dataGridViewFiles.DataSource = filesOperator.FilesData;
@@ -42,10 +43,15 @@ namespace JRenamer
 
 #if DEBUG
             filesOperator.CurrentDirectory = @"C:\Users\Public\Shared\Documents\Posts";
+            filesOperator.CommandAgent.Commands.Add(new CommandInsert(0, "test"));
+            filesOperator.CommandAgent.Commands.Add(new CommandInsert(99, "another text"));
 #else
             files.CurrentDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 #endif
             RefreshDirectory();
+
+            // Commands
+            listBoxCommands.DataSource = filesOperator.CommandAgent.Commands;
         }
 
         /// <summary>
