@@ -28,6 +28,7 @@ namespace JRenamer
         private string mask;
         private bool showMaskedFiles;
         private DataTable dtFiles;
+        private CommandAgent commandAgent;
 
         public EventHandler DataChanged;
         
@@ -69,6 +70,8 @@ namespace JRenamer
                 new DataColumn("New Directory", typeof(string))
             });
 
+            commandAgent = new CommandAgent();
+
             RefreshFiles();
         }
 
@@ -76,6 +79,11 @@ namespace JRenamer
         {
             get { return dtFiles; }
             set { dtFiles = value; }
+        }
+
+        public CommandAgent CommandAgent
+        {
+            get { return commandAgent; }
         }
 
         public string CurrentDirectory
