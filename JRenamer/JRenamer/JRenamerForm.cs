@@ -52,6 +52,14 @@ namespace JRenamer
 
             // Commands
             listBoxCommands.DataSource = filesOperator.CommandAgent.Commands;
+            listBoxCommands.ClearSelected();
+            filesOperator.CommandAgent.PropertyChanged += new PropertyChangedEventHandler(this.Commands_ListChanged);
+        }
+
+        private void Commands_ListChanged(object sender, PropertyChangedEventArgs e)
+        {
+            listBoxCommands.DataSource = null;
+            listBoxCommands.DataSource = filesOperator.CommandAgent.Commands;
         }
 
         /// <summary>
@@ -113,6 +121,29 @@ namespace JRenamer
         private void checkBoxShowMasked_CheckedChanged(object sender, EventArgs e)
         {
             filesOperator.ShowMaskedFiles = checkBoxShowMasked.Checked;
+        }
+
+        private void buttonCommandMoveUp_Click(object sender, EventArgs e)
+        {
+            if (listBoxCommands.SelectedIndex > 0)
+            {
+                filesOperator.CommandAgent.MoveUp(listBoxCommands.SelectedIndex);
+                listBoxCommands.SelectedIndex = listBoxCommands.SelectedIndex - 1;
+            }
+        }
+
+        private void buttonCommandMoveDown_Click(object sender, EventArgs e)
+        {
+            if (listBoxCommands.SelectedIndex >= 0 && listBoxCommands.SelectedIndex < (listBoxCommands.Items.Count - 1))
+            {
+                filesOperator.CommandAgent.MoveDown(listBoxCommands.SelectedIndex);
+                listBoxCommands.SelectedIndex = listBoxCommands.SelectedIndex + 1;
+            }
+        }
+
+        private void buttonCommandDelete_Click(object sender, EventArgs e)
+        {
+            filesOperator.CommandAgent.RemoveAt(listBoxCommands.SelectedIndex);
         }
     }
 }
