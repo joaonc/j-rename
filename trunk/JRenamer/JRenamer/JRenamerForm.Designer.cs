@@ -35,37 +35,40 @@
             this.textBoxCurrentDirectory = new System.Windows.Forms.TextBox();
             this.splitContainerFiles = new System.Windows.Forms.SplitContainer();
             this.panelDirectories = new System.Windows.Forms.Panel();
+            this.panelFiles = new System.Windows.Forms.Panel();
             this.checkBoxShowMasked = new System.Windows.Forms.CheckBox();
             this.dataGridViewFiles = new System.Windows.Forms.DataGridView();
             this.buttonSelectInvert = new System.Windows.Forms.Button();
+            this.labelFiles = new System.Windows.Forms.Label();
             this.buttonSelectNone = new System.Windows.Forms.Button();
+            this.labelMask = new System.Windows.Forms.Label();
             this.buttonSelectAll = new System.Windows.Forms.Button();
+            this.comboBoxMask = new System.Windows.Forms.ComboBox();
             this.labelSelect = new System.Windows.Forms.Label();
             this.buttonCreate = new System.Windows.Forms.Button();
-            this.comboBoxMask = new System.Windows.Forms.ComboBox();
-            this.labelMask = new System.Windows.Forms.Label();
-            this.labelFiles = new System.Windows.Forms.Label();
             this.contextMenuStripCreate = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTSV = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSpace = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemCSV = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainerActions = new System.Windows.Forms.SplitContainer();
-            this.panelFiles = new System.Windows.Forms.Panel();
             this.panelActions = new System.Windows.Forms.Panel();
             this.listBoxCommands = new System.Windows.Forms.ListBox();
+            this.buttonCommandMoveUp = new System.Windows.Forms.Button();
+            this.buttonCommandMoveDown = new System.Windows.Forms.Button();
+            this.buttonCommandDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerFiles)).BeginInit();
             this.splitContainerFiles.Panel1.SuspendLayout();
             this.splitContainerFiles.Panel2.SuspendLayout();
             this.splitContainerFiles.SuspendLayout();
             this.panelDirectories.SuspendLayout();
+            this.panelFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiles)).BeginInit();
             this.contextMenuStripCreate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerActions)).BeginInit();
             this.splitContainerActions.Panel1.SuspendLayout();
             this.splitContainerActions.Panel2.SuspendLayout();
             this.splitContainerActions.SuspendLayout();
-            this.panelFiles.SuspendLayout();
             this.panelActions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,6 +148,23 @@
             this.panelDirectories.Size = new System.Drawing.Size(270, 345);
             this.panelDirectories.TabIndex = 4;
             // 
+            // panelFiles
+            // 
+            this.panelFiles.Controls.Add(this.checkBoxShowMasked);
+            this.panelFiles.Controls.Add(this.dataGridViewFiles);
+            this.panelFiles.Controls.Add(this.buttonSelectInvert);
+            this.panelFiles.Controls.Add(this.labelFiles);
+            this.panelFiles.Controls.Add(this.buttonSelectNone);
+            this.panelFiles.Controls.Add(this.labelMask);
+            this.panelFiles.Controls.Add(this.buttonSelectAll);
+            this.panelFiles.Controls.Add(this.comboBoxMask);
+            this.panelFiles.Controls.Add(this.labelSelect);
+            this.panelFiles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFiles.Location = new System.Drawing.Point(0, 0);
+            this.panelFiles.Name = "panelFiles";
+            this.panelFiles.Size = new System.Drawing.Size(750, 345);
+            this.panelFiles.TabIndex = 11;
+            // 
             // checkBoxShowMasked
             // 
             this.checkBoxShowMasked.AutoSize = true;
@@ -179,6 +199,15 @@
             this.buttonSelectInvert.UseVisualStyleBackColor = true;
             this.buttonSelectInvert.Click += new System.EventHandler(this.buttonSelectInvert_Click);
             // 
+            // labelFiles
+            // 
+            this.labelFiles.AutoSize = true;
+            this.labelFiles.Location = new System.Drawing.Point(3, 11);
+            this.labelFiles.Name = "labelFiles";
+            this.labelFiles.Size = new System.Drawing.Size(28, 13);
+            this.labelFiles.TabIndex = 0;
+            this.labelFiles.Text = "Files";
+            // 
             // buttonSelectNone
             // 
             this.buttonSelectNone.Location = new System.Drawing.Point(130, 59);
@@ -189,6 +218,15 @@
             this.buttonSelectNone.UseVisualStyleBackColor = true;
             this.buttonSelectNone.Click += new System.EventHandler(this.buttonSelectNone_Click);
             // 
+            // labelMask
+            // 
+            this.labelMask.AutoSize = true;
+            this.labelMask.Location = new System.Drawing.Point(6, 34);
+            this.labelMask.Name = "labelMask";
+            this.labelMask.Size = new System.Drawing.Size(33, 13);
+            this.labelMask.TabIndex = 1;
+            this.labelMask.Text = "Mask";
+            // 
             // buttonSelectAll
             // 
             this.buttonSelectAll.Location = new System.Drawing.Point(49, 59);
@@ -198,6 +236,16 @@
             this.buttonSelectAll.Text = "All";
             this.buttonSelectAll.UseVisualStyleBackColor = true;
             this.buttonSelectAll.Click += new System.EventHandler(this.buttonSelectAll_Click);
+            // 
+            // comboBoxMask
+            // 
+            this.comboBoxMask.FormattingEnabled = true;
+            this.comboBoxMask.Location = new System.Drawing.Point(45, 31);
+            this.comboBoxMask.Name = "comboBoxMask";
+            this.comboBoxMask.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxMask.TabIndex = 2;
+            this.comboBoxMask.Text = "*.*";
+            this.comboBoxMask.TextChanged += new System.EventHandler(this.comboBoxMask_TextChanged);
             // 
             // labelSelect
             // 
@@ -219,34 +267,6 @@
             this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
-            // 
-            // comboBoxMask
-            // 
-            this.comboBoxMask.FormattingEnabled = true;
-            this.comboBoxMask.Location = new System.Drawing.Point(45, 31);
-            this.comboBoxMask.Name = "comboBoxMask";
-            this.comboBoxMask.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxMask.TabIndex = 2;
-            this.comboBoxMask.Text = "*.*";
-            this.comboBoxMask.TextChanged += new System.EventHandler(this.comboBoxMask_TextChanged);
-            // 
-            // labelMask
-            // 
-            this.labelMask.AutoSize = true;
-            this.labelMask.Location = new System.Drawing.Point(6, 34);
-            this.labelMask.Name = "labelMask";
-            this.labelMask.Size = new System.Drawing.Size(33, 13);
-            this.labelMask.TabIndex = 1;
-            this.labelMask.Text = "Mask";
-            // 
-            // labelFiles
-            // 
-            this.labelFiles.AutoSize = true;
-            this.labelFiles.Location = new System.Drawing.Point(3, 11);
-            this.labelFiles.Name = "labelFiles";
-            this.labelFiles.Size = new System.Drawing.Size(28, 13);
-            this.labelFiles.TabIndex = 0;
-            this.labelFiles.Text = "Files";
             // 
             // contextMenuStripCreate
             // 
@@ -304,25 +324,11 @@
             this.splitContainerActions.SplitterDistance = 345;
             this.splitContainerActions.TabIndex = 5;
             // 
-            // panelFiles
-            // 
-            this.panelFiles.Controls.Add(this.checkBoxShowMasked);
-            this.panelFiles.Controls.Add(this.dataGridViewFiles);
-            this.panelFiles.Controls.Add(this.buttonSelectInvert);
-            this.panelFiles.Controls.Add(this.labelFiles);
-            this.panelFiles.Controls.Add(this.buttonSelectNone);
-            this.panelFiles.Controls.Add(this.labelMask);
-            this.panelFiles.Controls.Add(this.buttonSelectAll);
-            this.panelFiles.Controls.Add(this.comboBoxMask);
-            this.panelFiles.Controls.Add(this.labelSelect);
-            this.panelFiles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFiles.Location = new System.Drawing.Point(0, 0);
-            this.panelFiles.Name = "panelFiles";
-            this.panelFiles.Size = new System.Drawing.Size(750, 345);
-            this.panelFiles.TabIndex = 11;
-            // 
             // panelActions
             // 
+            this.panelActions.Controls.Add(this.buttonCommandDelete);
+            this.panelActions.Controls.Add(this.buttonCommandMoveDown);
+            this.panelActions.Controls.Add(this.buttonCommandMoveUp);
             this.panelActions.Controls.Add(this.listBoxCommands);
             this.panelActions.Controls.Add(this.buttonCreate);
             this.panelActions.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -341,6 +347,36 @@
             this.listBoxCommands.Size = new System.Drawing.Size(208, 108);
             this.listBoxCommands.TabIndex = 5;
             // 
+            // buttonCommandMoveUp
+            // 
+            this.buttonCommandMoveUp.Location = new System.Drawing.Point(946, 3);
+            this.buttonCommandMoveUp.Name = "buttonCommandMoveUp";
+            this.buttonCommandMoveUp.Size = new System.Drawing.Size(50, 23);
+            this.buttonCommandMoveUp.TabIndex = 6;
+            this.buttonCommandMoveUp.Text = "Up";
+            this.buttonCommandMoveUp.UseVisualStyleBackColor = true;
+            this.buttonCommandMoveUp.Click += new System.EventHandler(this.buttonCommandMoveUp_Click);
+            // 
+            // buttonCommandMoveDown
+            // 
+            this.buttonCommandMoveDown.Location = new System.Drawing.Point(946, 28);
+            this.buttonCommandMoveDown.Name = "buttonCommandMoveDown";
+            this.buttonCommandMoveDown.Size = new System.Drawing.Size(50, 23);
+            this.buttonCommandMoveDown.TabIndex = 7;
+            this.buttonCommandMoveDown.Text = "Down";
+            this.buttonCommandMoveDown.UseVisualStyleBackColor = true;
+            this.buttonCommandMoveDown.Click += new System.EventHandler(this.buttonCommandMoveDown_Click);
+            // 
+            // buttonCommandDelete
+            // 
+            this.buttonCommandDelete.Location = new System.Drawing.Point(946, 53);
+            this.buttonCommandDelete.Name = "buttonCommandDelete";
+            this.buttonCommandDelete.Size = new System.Drawing.Size(50, 23);
+            this.buttonCommandDelete.TabIndex = 8;
+            this.buttonCommandDelete.Text = "Del";
+            this.buttonCommandDelete.UseVisualStyleBackColor = true;
+            this.buttonCommandDelete.Click += new System.EventHandler(this.buttonCommandDelete_Click);
+            // 
             // JRenamerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,14 +393,14 @@
             this.splitContainerFiles.ResumeLayout(false);
             this.panelDirectories.ResumeLayout(false);
             this.panelDirectories.PerformLayout();
+            this.panelFiles.ResumeLayout(false);
+            this.panelFiles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiles)).EndInit();
             this.contextMenuStripCreate.ResumeLayout(false);
             this.splitContainerActions.Panel1.ResumeLayout(false);
             this.splitContainerActions.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerActions)).EndInit();
             this.splitContainerActions.ResumeLayout(false);
-            this.panelFiles.ResumeLayout(false);
-            this.panelFiles.PerformLayout();
             this.panelActions.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -397,6 +433,9 @@
         private System.Windows.Forms.Panel panelFiles;
         private System.Windows.Forms.Panel panelActions;
         private System.Windows.Forms.ListBox listBoxCommands;
+        private System.Windows.Forms.Button buttonCommandDelete;
+        private System.Windows.Forms.Button buttonCommandMoveDown;
+        private System.Windows.Forms.Button buttonCommandMoveUp;
     }
 }
 

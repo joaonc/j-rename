@@ -30,8 +30,6 @@ namespace JRenamer
         private DataTable dtFiles;
         private CommandAgent commandAgent;
 
-        public EventHandler DataChanged;
-        
         public FilesOperator()
         {
             Initiate(null, null);
