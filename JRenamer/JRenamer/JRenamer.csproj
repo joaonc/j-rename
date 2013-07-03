@@ -45,20 +45,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandAgent.cs" />
-    <Compile Include="CommandInsert.cs" />
+    <Compile Include="Commands\CommandInsert.cs" />
+    <Compile Include="Commands\CommandInsertType.cs" />
     <Compile Include="DirectoryFileName.cs" />
     <Compile Include="FilesOperator.cs" />
     <Compile Include="ICommand.cs" />
+    <Compile Include="ICommandFactory.cs" />
     <Compile Include="JRenamerForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="JRenamerForm.Designer.cs">
       <DependentUpon>JRenamerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\UserControlCommandInsert.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\UserControlCommandInsert.Designer.cs">
+      <DependentUpon>UserControlCommandInsert.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="JRenamerForm.resx">
       <DependentUpon>JRenamerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UserControlCommandInsert.resx">
+      <DependentUpon>UserControlCommandInsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
