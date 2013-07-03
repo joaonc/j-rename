@@ -29,12 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.labelDirectory = new System.Windows.Forms.Label();
-            this.listBoxDirectory = new System.Windows.Forms.ListBox();
-            this.buttonChangeDir = new System.Windows.Forms.Button();
-            this.textBoxCurrentDirectory = new System.Windows.Forms.TextBox();
+            this.contextMenuStripCreate = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemTSV = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemSpace = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemCSV = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainerActions = new System.Windows.Forms.SplitContainer();
             this.splitContainerFiles = new System.Windows.Forms.SplitContainer();
             this.panelDirectories = new System.Windows.Forms.Panel();
+            this.buttonChangeDir = new System.Windows.Forms.Button();
+            this.labelDirectory = new System.Windows.Forms.Label();
+            this.listBoxDirectory = new System.Windows.Forms.ListBox();
+            this.textBoxCurrentDirectory = new System.Windows.Forms.TextBox();
             this.panelFiles = new System.Windows.Forms.Panel();
             this.checkBoxShowMasked = new System.Windows.Forms.CheckBox();
             this.dataGridViewFiles = new System.Windows.Forms.DataGridView();
@@ -45,27 +51,27 @@
             this.buttonSelectAll = new System.Windows.Forms.Button();
             this.comboBoxMask = new System.Windows.Forms.ComboBox();
             this.labelSelect = new System.Windows.Forms.Label();
-            this.buttonCreate = new System.Windows.Forms.Button();
-            this.contextMenuStripCreate = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemTSV = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemSpace = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemCSV = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitContainerActions = new System.Windows.Forms.SplitContainer();
             this.panelActions = new System.Windows.Forms.Panel();
+            this.buttonCommandClear = new System.Windows.Forms.Button();
+            this.buttonCommandGet = new System.Windows.Forms.Button();
+            this.buttonCommandReplace = new System.Windows.Forms.Button();
+            this.buttonCommandAdd = new System.Windows.Forms.Button();
+            this.tabControlCommands = new System.Windows.Forms.TabControl();
+            this.tabPageMacro = new System.Windows.Forms.TabPage();
+            this.tabPageInsert = new System.Windows.Forms.TabPage();
+            this.panelCommandInsert = new JRenamer.UserControlCommandInsert();
+            this.tabPageRemove = new System.Windows.Forms.TabPage();
+            this.tabPageChangeCase = new System.Windows.Forms.TabPage();
             this.buttonCommandDelete = new System.Windows.Forms.Button();
             this.buttonCommandMoveDown = new System.Windows.Forms.Button();
             this.buttonCommandMoveUp = new System.Windows.Forms.Button();
             this.listBoxCommands = new System.Windows.Forms.ListBox();
-            this.tabControlCommands = new System.Windows.Forms.TabControl();
-            this.tabPageInsert = new System.Windows.Forms.TabPage();
-            this.tabPageMacro = new System.Windows.Forms.TabPage();
-            this.tabPageRemove = new System.Windows.Forms.TabPage();
-            this.tabPageChangeCase = new System.Windows.Forms.TabPage();
-            this.buttonCommandAdd = new System.Windows.Forms.Button();
-            this.buttonCommandReplace = new System.Windows.Forms.Button();
-            this.buttonCommandGet = new System.Windows.Forms.Button();
-            this.buttonCommandClear = new System.Windows.Forms.Button();
+            this.buttonCreate = new System.Windows.Forms.Button();
+            this.contextMenuStripCreate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerActions)).BeginInit();
+            this.splitContainerActions.Panel1.SuspendLayout();
+            this.splitContainerActions.Panel2.SuspendLayout();
+            this.splitContainerActions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerFiles)).BeginInit();
             this.splitContainerFiles.Panel1.SuspendLayout();
             this.splitContainerFiles.Panel2.SuspendLayout();
@@ -73,57 +79,66 @@
             this.panelDirectories.SuspendLayout();
             this.panelFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiles)).BeginInit();
-            this.contextMenuStripCreate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerActions)).BeginInit();
-            this.splitContainerActions.Panel1.SuspendLayout();
-            this.splitContainerActions.Panel2.SuspendLayout();
-            this.splitContainerActions.SuspendLayout();
             this.panelActions.SuspendLayout();
             this.tabControlCommands.SuspendLayout();
+            this.tabPageInsert.SuspendLayout();
             this.SuspendLayout();
             // 
-            // labelDirectory
+            // contextMenuStripCreate
             // 
-            this.labelDirectory.AutoSize = true;
-            this.labelDirectory.Location = new System.Drawing.Point(3, 10);
-            this.labelDirectory.Name = "labelDirectory";
-            this.labelDirectory.Size = new System.Drawing.Size(49, 13);
-            this.labelDirectory.TabIndex = 0;
-            this.labelDirectory.Text = "Directory";
+            this.contextMenuStripCreate.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItemTSV,
+            this.toolStripMenuItemSpace,
+            this.toolStripMenuItemCSV});
+            this.contextMenuStripCreate.Name = "contextMenuStripCreate";
+            this.contextMenuStripCreate.ShowImageMargin = false;
+            this.contextMenuStripCreate.Size = new System.Drawing.Size(217, 92);
             // 
-            // listBoxDirectory
+            // toolStripMenuItem1
             // 
-            this.listBoxDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
+            this.toolStripMenuItem1.Text = "One Per Line (TXT)";
+            // 
+            // toolStripMenuItemTSV
+            // 
+            this.toolStripMenuItemTSV.Name = "toolStripMenuItemTSV";
+            this.toolStripMenuItemTSV.Size = new System.Drawing.Size(216, 22);
+            this.toolStripMenuItemTSV.Text = "Tab Separated Values (TXT)";
+            // 
+            // toolStripMenuItemSpace
+            // 
+            this.toolStripMenuItemSpace.Name = "toolStripMenuItemSpace";
+            this.toolStripMenuItemSpace.Size = new System.Drawing.Size(216, 22);
+            this.toolStripMenuItemSpace.Text = "Space Separated Values (TXT)";
+            // 
+            // toolStripMenuItemCSV
+            // 
+            this.toolStripMenuItemCSV.Name = "toolStripMenuItemCSV";
+            this.toolStripMenuItemCSV.Size = new System.Drawing.Size(216, 22);
+            this.toolStripMenuItemCSV.Text = "Comma Separated Values (CSV)";
+            // 
+            // splitContainerActions
+            // 
+            this.splitContainerActions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxDirectory.FormattingEnabled = true;
-            this.listBoxDirectory.Location = new System.Drawing.Point(3, 52);
-            this.listBoxDirectory.Name = "listBoxDirectory";
-            this.listBoxDirectory.Size = new System.Drawing.Size(262, 277);
-            this.listBoxDirectory.TabIndex = 1;
-            this.listBoxDirectory.SelectedIndexChanged += new System.EventHandler(this.listBoxDirectory_SelectedIndexChanged);
-            this.listBoxDirectory.DoubleClick += new System.EventHandler(this.listBoxDirectory_DoubleClick);
+            this.splitContainerActions.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainerActions.Location = new System.Drawing.Point(12, 12);
+            this.splitContainerActions.Name = "splitContainerActions";
+            this.splitContainerActions.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // buttonChangeDir
+            // splitContainerActions.Panel1
             // 
-            this.buttonChangeDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonChangeDir.Location = new System.Drawing.Point(3, 333);
-            this.buttonChangeDir.Name = "buttonChangeDir";
-            this.buttonChangeDir.Size = new System.Drawing.Size(75, 23);
-            this.buttonChangeDir.TabIndex = 2;
-            this.buttonChangeDir.Text = "Change dir";
-            this.buttonChangeDir.UseVisualStyleBackColor = true;
+            this.splitContainerActions.Panel1.Controls.Add(this.splitContainerFiles);
             // 
-            // textBoxCurrentDirectory
+            // splitContainerActions.Panel2
             // 
-            this.textBoxCurrentDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxCurrentDirectory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxCurrentDirectory.Location = new System.Drawing.Point(3, 26);
-            this.textBoxCurrentDirectory.Name = "textBoxCurrentDirectory";
-            this.textBoxCurrentDirectory.ReadOnly = true;
-            this.textBoxCurrentDirectory.Size = new System.Drawing.Size(262, 20);
-            this.textBoxCurrentDirectory.TabIndex = 3;
+            this.splitContainerActions.Panel2.Controls.Add(this.panelActions);
+            this.splitContainerActions.Size = new System.Drawing.Size(1002, 564);
+            this.splitContainerActions.SplitterDistance = 362;
+            this.splitContainerActions.TabIndex = 5;
             // 
             // splitContainerFiles
             // 
@@ -157,6 +172,49 @@
             this.panelDirectories.Name = "panelDirectories";
             this.panelDirectories.Size = new System.Drawing.Size(270, 362);
             this.panelDirectories.TabIndex = 4;
+            // 
+            // buttonChangeDir
+            // 
+            this.buttonChangeDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonChangeDir.Location = new System.Drawing.Point(3, 333);
+            this.buttonChangeDir.Name = "buttonChangeDir";
+            this.buttonChangeDir.Size = new System.Drawing.Size(75, 23);
+            this.buttonChangeDir.TabIndex = 2;
+            this.buttonChangeDir.Text = "Change dir";
+            this.buttonChangeDir.UseVisualStyleBackColor = true;
+            // 
+            // labelDirectory
+            // 
+            this.labelDirectory.AutoSize = true;
+            this.labelDirectory.Location = new System.Drawing.Point(3, 10);
+            this.labelDirectory.Name = "labelDirectory";
+            this.labelDirectory.Size = new System.Drawing.Size(49, 13);
+            this.labelDirectory.TabIndex = 0;
+            this.labelDirectory.Text = "Directory";
+            // 
+            // listBoxDirectory
+            // 
+            this.listBoxDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxDirectory.FormattingEnabled = true;
+            this.listBoxDirectory.Location = new System.Drawing.Point(3, 52);
+            this.listBoxDirectory.Name = "listBoxDirectory";
+            this.listBoxDirectory.Size = new System.Drawing.Size(262, 277);
+            this.listBoxDirectory.TabIndex = 1;
+            this.listBoxDirectory.SelectedIndexChanged += new System.EventHandler(this.listBoxDirectory_SelectedIndexChanged);
+            this.listBoxDirectory.DoubleClick += new System.EventHandler(this.listBoxDirectory_DoubleClick);
+            // 
+            // textBoxCurrentDirectory
+            // 
+            this.textBoxCurrentDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxCurrentDirectory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxCurrentDirectory.Location = new System.Drawing.Point(3, 26);
+            this.textBoxCurrentDirectory.Name = "textBoxCurrentDirectory";
+            this.textBoxCurrentDirectory.ReadOnly = true;
+            this.textBoxCurrentDirectory.Size = new System.Drawing.Size(262, 20);
+            this.textBoxCurrentDirectory.TabIndex = 3;
             // 
             // panelFiles
             // 
@@ -266,74 +324,6 @@
             this.labelSelect.TabIndex = 5;
             this.labelSelect.Text = "Select";
             // 
-            // buttonCreate
-            // 
-            this.buttonCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreate.Location = new System.Drawing.Point(921, 166);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(75, 23);
-            this.buttonCreate.TabIndex = 4;
-            this.buttonCreate.Text = "Create";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
-            // 
-            // contextMenuStripCreate
-            // 
-            this.contextMenuStripCreate.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItemTSV,
-            this.toolStripMenuItemSpace,
-            this.toolStripMenuItemCSV});
-            this.contextMenuStripCreate.Name = "contextMenuStripCreate";
-            this.contextMenuStripCreate.ShowImageMargin = false;
-            this.contextMenuStripCreate.Size = new System.Drawing.Size(217, 92);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
-            this.toolStripMenuItem1.Text = "One Per Line (TXT)";
-            // 
-            // toolStripMenuItemTSV
-            // 
-            this.toolStripMenuItemTSV.Name = "toolStripMenuItemTSV";
-            this.toolStripMenuItemTSV.Size = new System.Drawing.Size(216, 22);
-            this.toolStripMenuItemTSV.Text = "Tab Separated Values (TXT)";
-            // 
-            // toolStripMenuItemSpace
-            // 
-            this.toolStripMenuItemSpace.Name = "toolStripMenuItemSpace";
-            this.toolStripMenuItemSpace.Size = new System.Drawing.Size(216, 22);
-            this.toolStripMenuItemSpace.Text = "Space Separated Values (TXT)";
-            // 
-            // toolStripMenuItemCSV
-            // 
-            this.toolStripMenuItemCSV.Name = "toolStripMenuItemCSV";
-            this.toolStripMenuItemCSV.Size = new System.Drawing.Size(216, 22);
-            this.toolStripMenuItemCSV.Text = "Comma Separated Values (CSV)";
-            // 
-            // splitContainerActions
-            // 
-            this.splitContainerActions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainerActions.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainerActions.Location = new System.Drawing.Point(12, 12);
-            this.splitContainerActions.Name = "splitContainerActions";
-            this.splitContainerActions.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainerActions.Panel1
-            // 
-            this.splitContainerActions.Panel1.Controls.Add(this.splitContainerFiles);
-            // 
-            // splitContainerActions.Panel2
-            // 
-            this.splitContainerActions.Panel2.Controls.Add(this.panelActions);
-            this.splitContainerActions.Size = new System.Drawing.Size(1002, 564);
-            this.splitContainerActions.SplitterDistance = 362;
-            this.splitContainerActions.TabIndex = 5;
-            // 
             // panelActions
             // 
             this.panelActions.Controls.Add(this.buttonCommandClear);
@@ -351,6 +341,115 @@
             this.panelActions.Name = "panelActions";
             this.panelActions.Size = new System.Drawing.Size(1002, 198);
             this.panelActions.TabIndex = 5;
+            // 
+            // buttonCommandClear
+            // 
+            this.buttonCommandClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCommandClear.Location = new System.Drawing.Point(627, 93);
+            this.buttonCommandClear.Name = "buttonCommandClear";
+            this.buttonCommandClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonCommandClear.TabIndex = 13;
+            this.buttonCommandClear.Text = "Clear All";
+            this.buttonCommandClear.UseVisualStyleBackColor = true;
+            this.buttonCommandClear.Click += new System.EventHandler(this.buttonCommandClear_Click);
+            // 
+            // buttonCommandGet
+            // 
+            this.buttonCommandGet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCommandGet.Location = new System.Drawing.Point(627, 63);
+            this.buttonCommandGet.Name = "buttonCommandGet";
+            this.buttonCommandGet.Size = new System.Drawing.Size(75, 23);
+            this.buttonCommandGet.TabIndex = 12;
+            this.buttonCommandGet.Text = "Get";
+            this.buttonCommandGet.UseVisualStyleBackColor = true;
+            this.buttonCommandGet.Click += new System.EventHandler(this.buttonCommandGet_Click);
+            // 
+            // buttonCommandReplace
+            // 
+            this.buttonCommandReplace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCommandReplace.Location = new System.Drawing.Point(627, 33);
+            this.buttonCommandReplace.Name = "buttonCommandReplace";
+            this.buttonCommandReplace.Size = new System.Drawing.Size(75, 23);
+            this.buttonCommandReplace.TabIndex = 11;
+            this.buttonCommandReplace.Text = "Replace";
+            this.buttonCommandReplace.UseVisualStyleBackColor = true;
+            this.buttonCommandReplace.Click += new System.EventHandler(this.buttonCommandReplace_Click);
+            // 
+            // buttonCommandAdd
+            // 
+            this.buttonCommandAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCommandAdd.Location = new System.Drawing.Point(626, 3);
+            this.buttonCommandAdd.Name = "buttonCommandAdd";
+            this.buttonCommandAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonCommandAdd.TabIndex = 10;
+            this.buttonCommandAdd.Text = "Add";
+            this.buttonCommandAdd.UseVisualStyleBackColor = true;
+            this.buttonCommandAdd.Click += new System.EventHandler(this.buttonCommandAdd_Click);
+            // 
+            // tabControlCommands
+            // 
+            this.tabControlCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlCommands.Controls.Add(this.tabPageMacro);
+            this.tabControlCommands.Controls.Add(this.tabPageInsert);
+            this.tabControlCommands.Controls.Add(this.tabPageRemove);
+            this.tabControlCommands.Controls.Add(this.tabPageChangeCase);
+            this.tabControlCommands.Location = new System.Drawing.Point(1, 4);
+            this.tabControlCommands.Name = "tabControlCommands";
+            this.tabControlCommands.SelectedIndex = 0;
+            this.tabControlCommands.Size = new System.Drawing.Size(619, 185);
+            this.tabControlCommands.TabIndex = 9;
+            // 
+            // tabPageMacro
+            // 
+            this.tabPageMacro.Location = new System.Drawing.Point(4, 22);
+            this.tabPageMacro.Name = "tabPageMacro";
+            this.tabPageMacro.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageMacro.Size = new System.Drawing.Size(611, 159);
+            this.tabPageMacro.TabIndex = 1;
+            this.tabPageMacro.Text = "Macro";
+            this.tabPageMacro.UseVisualStyleBackColor = true;
+            // 
+            // tabPageInsert
+            // 
+            this.tabPageInsert.Controls.Add(this.panelCommandInsert);
+            this.tabPageInsert.Location = new System.Drawing.Point(4, 22);
+            this.tabPageInsert.Name = "tabPageInsert";
+            this.tabPageInsert.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageInsert.Size = new System.Drawing.Size(611, 159);
+            this.tabPageInsert.TabIndex = 0;
+            this.tabPageInsert.Text = "Insert";
+            this.tabPageInsert.UseVisualStyleBackColor = true;
+            // 
+            // panelCommandInsert
+            // 
+            this.panelCommandInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelCommandInsert.Location = new System.Drawing.Point(0, 0);
+            this.panelCommandInsert.Name = "panelCommandInsert";
+            this.panelCommandInsert.Size = new System.Drawing.Size(611, 159);
+            this.panelCommandInsert.TabIndex = 0;
+            // 
+            // tabPageRemove
+            // 
+            this.tabPageRemove.Location = new System.Drawing.Point(4, 22);
+            this.tabPageRemove.Name = "tabPageRemove";
+            this.tabPageRemove.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageRemove.Size = new System.Drawing.Size(611, 159);
+            this.tabPageRemove.TabIndex = 2;
+            this.tabPageRemove.Text = "Remove";
+            this.tabPageRemove.UseVisualStyleBackColor = true;
+            // 
+            // tabPageChangeCase
+            // 
+            this.tabPageChangeCase.Location = new System.Drawing.Point(4, 22);
+            this.tabPageChangeCase.Name = "tabPageChangeCase";
+            this.tabPageChangeCase.Size = new System.Drawing.Size(611, 159);
+            this.tabPageChangeCase.TabIndex = 3;
+            this.tabPageChangeCase.Text = "Change Case";
+            this.tabPageChangeCase.UseVisualStyleBackColor = true;
             // 
             // buttonCommandDelete
             // 
@@ -395,103 +494,17 @@
             this.listBoxCommands.Size = new System.Drawing.Size(208, 186);
             this.listBoxCommands.TabIndex = 5;
             // 
-            // tabControlCommands
+            // buttonCreate
             // 
-            this.tabControlCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControlCommands.Controls.Add(this.tabPageMacro);
-            this.tabControlCommands.Controls.Add(this.tabPageInsert);
-            this.tabControlCommands.Controls.Add(this.tabPageRemove);
-            this.tabControlCommands.Controls.Add(this.tabPageChangeCase);
-            this.tabControlCommands.Location = new System.Drawing.Point(1, 4);
-            this.tabControlCommands.Name = "tabControlCommands";
-            this.tabControlCommands.SelectedIndex = 0;
-            this.tabControlCommands.Size = new System.Drawing.Size(619, 185);
-            this.tabControlCommands.TabIndex = 9;
-            // 
-            // tabPageInsert
-            // 
-            this.tabPageInsert.Location = new System.Drawing.Point(4, 22);
-            this.tabPageInsert.Name = "tabPageInsert";
-            this.tabPageInsert.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageInsert.Size = new System.Drawing.Size(633, 81);
-            this.tabPageInsert.TabIndex = 0;
-            this.tabPageInsert.Text = "Insert";
-            this.tabPageInsert.UseVisualStyleBackColor = true;
-            // 
-            // tabPageMacro
-            // 
-            this.tabPageMacro.Location = new System.Drawing.Point(4, 22);
-            this.tabPageMacro.Name = "tabPageMacro";
-            this.tabPageMacro.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMacro.Size = new System.Drawing.Size(611, 159);
-            this.tabPageMacro.TabIndex = 1;
-            this.tabPageMacro.Text = "Macro";
-            this.tabPageMacro.UseVisualStyleBackColor = true;
-            // 
-            // tabPageRemove
-            // 
-            this.tabPageRemove.Location = new System.Drawing.Point(4, 22);
-            this.tabPageRemove.Name = "tabPageRemove";
-            this.tabPageRemove.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRemove.Size = new System.Drawing.Size(633, 81);
-            this.tabPageRemove.TabIndex = 2;
-            this.tabPageRemove.Text = "Remove";
-            this.tabPageRemove.UseVisualStyleBackColor = true;
-            // 
-            // tabPageChangeCase
-            // 
-            this.tabPageChangeCase.Location = new System.Drawing.Point(4, 22);
-            this.tabPageChangeCase.Name = "tabPageChangeCase";
-            this.tabPageChangeCase.Size = new System.Drawing.Size(633, 81);
-            this.tabPageChangeCase.TabIndex = 3;
-            this.tabPageChangeCase.Text = "Change Case";
-            this.tabPageChangeCase.UseVisualStyleBackColor = true;
-            // 
-            // buttonCommandAdd
-            // 
-            this.buttonCommandAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCommandAdd.Location = new System.Drawing.Point(626, 3);
-            this.buttonCommandAdd.Name = "buttonCommandAdd";
-            this.buttonCommandAdd.Size = new System.Drawing.Size(75, 23);
-            this.buttonCommandAdd.TabIndex = 10;
-            this.buttonCommandAdd.Text = "Add";
-            this.buttonCommandAdd.UseVisualStyleBackColor = true;
-            this.buttonCommandAdd.Click += new System.EventHandler(this.buttonCommandAdd_Click);
-            // 
-            // buttonCommandReplace
-            // 
-            this.buttonCommandReplace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCommandReplace.Location = new System.Drawing.Point(627, 33);
-            this.buttonCommandReplace.Name = "buttonCommandReplace";
-            this.buttonCommandReplace.Size = new System.Drawing.Size(75, 23);
-            this.buttonCommandReplace.TabIndex = 11;
-            this.buttonCommandReplace.Text = "Replace";
-            this.buttonCommandReplace.UseVisualStyleBackColor = true;
-            this.buttonCommandReplace.Click += new System.EventHandler(this.buttonCommandReplace_Click);
-            // 
-            // buttonCommandGet
-            // 
-            this.buttonCommandGet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCommandGet.Location = new System.Drawing.Point(627, 63);
-            this.buttonCommandGet.Name = "buttonCommandGet";
-            this.buttonCommandGet.Size = new System.Drawing.Size(75, 23);
-            this.buttonCommandGet.TabIndex = 12;
-            this.buttonCommandGet.Text = "Get";
-            this.buttonCommandGet.UseVisualStyleBackColor = true;
-            this.buttonCommandGet.Click += new System.EventHandler(this.buttonCommandGet_Click);
-            // 
-            // buttonCommandClear
-            // 
-            this.buttonCommandClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCommandClear.Location = new System.Drawing.Point(627, 93);
-            this.buttonCommandClear.Name = "buttonCommandClear";
-            this.buttonCommandClear.Size = new System.Drawing.Size(75, 23);
-            this.buttonCommandClear.TabIndex = 13;
-            this.buttonCommandClear.Text = "Clear All";
-            this.buttonCommandClear.UseVisualStyleBackColor = true;
-            this.buttonCommandClear.Click += new System.EventHandler(this.buttonCommandClear_Click);
+            this.buttonCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreate.Location = new System.Drawing.Point(921, 166);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(75, 23);
+            this.buttonCreate.TabIndex = 4;
+            this.buttonCreate.Text = "Create";
+            this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // JRenamerForm
             // 
@@ -503,6 +516,11 @@
             this.Name = "JRenamerForm";
             this.Text = "Files";
             this.Load += new System.EventHandler(this.FilesForm_Load);
+            this.contextMenuStripCreate.ResumeLayout(false);
+            this.splitContainerActions.Panel1.ResumeLayout(false);
+            this.splitContainerActions.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerActions)).EndInit();
+            this.splitContainerActions.ResumeLayout(false);
             this.splitContainerFiles.Panel1.ResumeLayout(false);
             this.splitContainerFiles.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerFiles)).EndInit();
@@ -512,13 +530,9 @@
             this.panelFiles.ResumeLayout(false);
             this.panelFiles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiles)).EndInit();
-            this.contextMenuStripCreate.ResumeLayout(false);
-            this.splitContainerActions.Panel1.ResumeLayout(false);
-            this.splitContainerActions.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerActions)).EndInit();
-            this.splitContainerActions.ResumeLayout(false);
             this.panelActions.ResumeLayout(false);
             this.tabControlCommands.ResumeLayout(false);
+            this.tabPageInsert.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -562,6 +576,7 @@
         private System.Windows.Forms.Button buttonCommandClear;
         private System.Windows.Forms.Button buttonCommandGet;
         private System.Windows.Forms.Button buttonCommandReplace;
+        private UserControlCommandInsert panelCommandInsert;
     }
 }
 
