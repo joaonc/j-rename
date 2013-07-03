@@ -13,6 +13,6 @@ namespace JRenamer
     public interface ICommand
     {
         string Description { get; }
-        string Execute(string currentName);
+        DirectoryFileName Execute(DirectoryFileName directoryFileName);
     }
 }

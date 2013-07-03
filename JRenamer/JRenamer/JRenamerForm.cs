@@ -44,7 +44,7 @@ namespace JRenamer
 #if DEBUG
             filesOperator.CurrentDirectory = @"C:\Users\Public\Shared\Documents\Posts";
             filesOperator.CommandAgent.Commands.Add(new CommandInsert(0, "test"));
-            filesOperator.CommandAgent.Commands.Add(new CommandInsert(99, "another text"));
+            filesOperator.CommandAgent.Commands.Add(new CommandInsert(3, "X"));
 #else
             files.CurrentDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 #endif
@@ -144,6 +144,26 @@ namespace JRenamer
         private void buttonCommandDelete_Click(object sender, EventArgs e)
         {
             filesOperator.CommandAgent.RemoveAt(listBoxCommands.SelectedIndex);
+        }
+
+        private void buttonCommandAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCommandReplace_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCommandGet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCommandClear_Click(object sender, EventArgs e)
+        {
+            filesOperator.CommandAgent.Clear();
         }
     }
 }

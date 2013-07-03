@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.IO;
+using System.ComponentModel;
 
 namespace JRenamer
 {
@@ -20,6 +21,12 @@ namespace JRenamer
         NewFileName,
         CurrentDirectory,
         NewDirectory
+    };
+
+    public enum FileName
+    {
+        Current,
+        New
     };
 
     public class FilesOperator
@@ -69,6 +76,7 @@ namespace JRenamer
             });
 
             commandAgent = new CommandAgent();
+            commandAgent.PropertyChanged += new PropertyChangedEventHandler(this.Commands_ListChanged);
 
             RefreshFiles();
         }
@@ -134,8 +142,24 @@ namespace JRenamer
             DirectoryInfo di = new DirectoryInfo(CurrentDirectory);
             foreach (FileInfo fi in di.GetFiles(Mask))
             {
-                FilesData.Rows.Add(true, true, fi.Name, fi.Name, CurrentDirectory, CurrentDirectory);
+                FilesData.Rows.Add(true, true, fi.Name, null, CurrentDirectory, null);
             }
+        }
+
+        public DirectoryFileName GetDirectoryFileName(int pos, FileName fileNameType)
+        {
+            if (pos < 0 || pos >= FilesData.Rows.Count)
+                throw new Exception(string.Format("Position not in range: {0}", pos));
+
+            return GetDirectoryFileName(FilesData.Rows[pos], fileNameType);
+        }
+
+        private DirectoryFileName GetDirectoryFileName(DataRow row, FileName fileNameType)
+        {
+            int colIndexFileName = (fileNameType == FileName.Current) ? (int)FilesColumns.CurrentFileName : (int)FilesColumns.NewFileName;
+            int colIndexDirectory = (fileNameType == FileName.Current) ? (int)FilesColumns.CurrentDirectory : (int)FilesColumns.NewDirectory;
+
+            return new DirectoryFileName((string)row[colIndexDirectory], (string)row[colIndexFileName]);
         }
 
         /// <summary>
@@ -211,6 +235,24 @@ namespace JRenamer
         {
             foreach (DataRow row in FilesData.Rows)
                 row[(int)FilesColumns.Selected] = !(bool)row[0];
+        }
+
+        private void Commands_ListChanged(object sender, PropertyChangedEventArgs e)
+        {
+            foreach(DataRow row in FilesData.Rows)
+            {
+                try
+                {
+                    DirectoryFileName newDirectoryFileName = CommandAgent.Execute(GetDirectoryFileName(row, FileName.Current));
+                    row[(int)FilesColumns.NewFileName] = newDirectoryFileName.FileName;
+                    row[(int)FilesColumns.NewDirectory] = newDirectoryFileName.DirectoryName;
+                }
+                catch
+                {
+                    row[(int)FilesColumns.NewFileName] = null;
+                    row[(int)FilesColumns.NewDirectory] = null;
+                }
+            }
         }
     }
 }
