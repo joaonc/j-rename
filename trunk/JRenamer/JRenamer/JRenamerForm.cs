@@ -43,8 +43,8 @@ namespace JRenamer
 
 #if DEBUG
             filesOperator.CurrentDirectory = @"C:\Users\Public\Shared\Documents\Posts";
-            filesOperator.CommandAgent.Commands.Add(new CommandInsert(0, "test"));
-            filesOperator.CommandAgent.Commands.Add(new CommandInsert(3, "X"));
+            filesOperator.CommandAgent.Commands.Add(new CommandInsertByPosition(0, "test"));
+            filesOperator.CommandAgent.Commands.Add(new CommandInsertByPosition(3, "X"));
 #else
             files.CurrentDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 #endif
@@ -148,7 +148,8 @@ namespace JRenamer
 
         private void buttonCommandAdd_Click(object sender, EventArgs e)
         {
-
+            ICommand command = ((ICommandFactory)tabControlCommands.SelectedTab.Controls[0]).GetCommand();
+            filesOperator.CommandAgent.Add(command);
         }
 
         private void buttonCommandReplace_Click(object sender, EventArgs e)

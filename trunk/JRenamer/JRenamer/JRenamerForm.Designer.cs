@@ -58,15 +58,18 @@
             this.buttonCommandAdd = new System.Windows.Forms.Button();
             this.tabControlCommands = new System.Windows.Forms.TabControl();
             this.tabPageMacro = new System.Windows.Forms.TabPage();
+            this.userControlCommandMacro = new JRenamer.UserControlCommandMacro();
             this.tabPageInsert = new System.Windows.Forms.TabPage();
             this.panelCommandInsert = new JRenamer.UserControlCommandInsert();
             this.tabPageRemove = new System.Windows.Forms.TabPage();
+            this.userControlCommandRemove = new JRenamer.UserControlCommandRemove();
             this.tabPageChangeCase = new System.Windows.Forms.TabPage();
             this.buttonCommandDelete = new System.Windows.Forms.Button();
             this.buttonCommandMoveDown = new System.Windows.Forms.Button();
             this.buttonCommandMoveUp = new System.Windows.Forms.Button();
             this.listBoxCommands = new System.Windows.Forms.ListBox();
             this.buttonCreate = new System.Windows.Forms.Button();
+            this.userControlChangeCase = new JRenamer.UserControlChangeCase();
             this.contextMenuStripCreate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerActions)).BeginInit();
             this.splitContainerActions.Panel1.SuspendLayout();
@@ -81,7 +84,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiles)).BeginInit();
             this.panelActions.SuspendLayout();
             this.tabControlCommands.SuspendLayout();
+            this.tabPageMacro.SuspendLayout();
             this.tabPageInsert.SuspendLayout();
+            this.tabPageRemove.SuspendLayout();
+            this.tabPageChangeCase.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStripCreate
@@ -403,6 +409,7 @@
             // 
             // tabPageMacro
             // 
+            this.tabPageMacro.Controls.Add(this.userControlCommandMacro);
             this.tabPageMacro.Location = new System.Drawing.Point(4, 22);
             this.tabPageMacro.Name = "tabPageMacro";
             this.tabPageMacro.Padding = new System.Windows.Forms.Padding(3);
@@ -410,6 +417,16 @@
             this.tabPageMacro.TabIndex = 1;
             this.tabPageMacro.Text = "Macro";
             this.tabPageMacro.UseVisualStyleBackColor = true;
+            // 
+            // userControlCommandMacro
+            // 
+            this.userControlCommandMacro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userControlCommandMacro.Location = new System.Drawing.Point(0, 0);
+            this.userControlCommandMacro.Name = "userControlCommandMacro";
+            this.userControlCommandMacro.Size = new System.Drawing.Size(611, 159);
+            this.userControlCommandMacro.TabIndex = 0;
             // 
             // tabPageInsert
             // 
@@ -434,6 +451,7 @@
             // 
             // tabPageRemove
             // 
+            this.tabPageRemove.Controls.Add(this.userControlCommandRemove);
             this.tabPageRemove.Location = new System.Drawing.Point(4, 22);
             this.tabPageRemove.Name = "tabPageRemove";
             this.tabPageRemove.Padding = new System.Windows.Forms.Padding(3);
@@ -442,8 +460,19 @@
             this.tabPageRemove.Text = "Remove";
             this.tabPageRemove.UseVisualStyleBackColor = true;
             // 
+            // userControlCommandRemove
+            // 
+            this.userControlCommandRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userControlCommandRemove.Location = new System.Drawing.Point(0, 0);
+            this.userControlCommandRemove.Name = "userControlCommandRemove";
+            this.userControlCommandRemove.Size = new System.Drawing.Size(611, 159);
+            this.userControlCommandRemove.TabIndex = 0;
+            // 
             // tabPageChangeCase
             // 
+            this.tabPageChangeCase.Controls.Add(this.userControlChangeCase);
             this.tabPageChangeCase.Location = new System.Drawing.Point(4, 22);
             this.tabPageChangeCase.Name = "tabPageChangeCase";
             this.tabPageChangeCase.Size = new System.Drawing.Size(611, 159);
@@ -506,6 +535,16 @@
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
+            // userControlChangeCase
+            // 
+            this.userControlChangeCase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userControlChangeCase.Location = new System.Drawing.Point(0, 0);
+            this.userControlChangeCase.Name = "userControlChangeCase";
+            this.userControlChangeCase.Size = new System.Drawing.Size(611, 159);
+            this.userControlChangeCase.TabIndex = 0;
+            // 
             // JRenamerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,7 +571,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiles)).EndInit();
             this.panelActions.ResumeLayout(false);
             this.tabControlCommands.ResumeLayout(false);
+            this.tabPageMacro.ResumeLayout(false);
             this.tabPageInsert.ResumeLayout(false);
+            this.tabPageRemove.ResumeLayout(false);
+            this.tabPageChangeCase.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -577,6 +619,9 @@
         private System.Windows.Forms.Button buttonCommandGet;
         private System.Windows.Forms.Button buttonCommandReplace;
         private UserControlCommandInsert panelCommandInsert;
+        private UserControlCommandMacro userControlCommandMacro;
+        private UserControlCommandRemove userControlCommandRemove;
+        private UserControlChangeCase userControlChangeCase;
     }
 }
 
