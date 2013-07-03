@@ -53,10 +53,19 @@
             this.toolStripMenuItemCSV = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainerActions = new System.Windows.Forms.SplitContainer();
             this.panelActions = new System.Windows.Forms.Panel();
-            this.listBoxCommands = new System.Windows.Forms.ListBox();
-            this.buttonCommandMoveUp = new System.Windows.Forms.Button();
-            this.buttonCommandMoveDown = new System.Windows.Forms.Button();
             this.buttonCommandDelete = new System.Windows.Forms.Button();
+            this.buttonCommandMoveDown = new System.Windows.Forms.Button();
+            this.buttonCommandMoveUp = new System.Windows.Forms.Button();
+            this.listBoxCommands = new System.Windows.Forms.ListBox();
+            this.tabControlCommands = new System.Windows.Forms.TabControl();
+            this.tabPageInsert = new System.Windows.Forms.TabPage();
+            this.tabPageMacro = new System.Windows.Forms.TabPage();
+            this.tabPageRemove = new System.Windows.Forms.TabPage();
+            this.tabPageChangeCase = new System.Windows.Forms.TabPage();
+            this.buttonCommandAdd = new System.Windows.Forms.Button();
+            this.buttonCommandReplace = new System.Windows.Forms.Button();
+            this.buttonCommandGet = new System.Windows.Forms.Button();
+            this.buttonCommandClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerFiles)).BeginInit();
             this.splitContainerFiles.Panel1.SuspendLayout();
             this.splitContainerFiles.Panel2.SuspendLayout();
@@ -70,6 +79,7 @@
             this.splitContainerActions.Panel2.SuspendLayout();
             this.splitContainerActions.SuspendLayout();
             this.panelActions.SuspendLayout();
+            this.tabControlCommands.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelDirectory
@@ -89,7 +99,7 @@
             this.listBoxDirectory.FormattingEnabled = true;
             this.listBoxDirectory.Location = new System.Drawing.Point(3, 52);
             this.listBoxDirectory.Name = "listBoxDirectory";
-            this.listBoxDirectory.Size = new System.Drawing.Size(262, 238);
+            this.listBoxDirectory.Size = new System.Drawing.Size(262, 277);
             this.listBoxDirectory.TabIndex = 1;
             this.listBoxDirectory.SelectedIndexChanged += new System.EventHandler(this.listBoxDirectory_SelectedIndexChanged);
             this.listBoxDirectory.DoubleClick += new System.EventHandler(this.listBoxDirectory_DoubleClick);
@@ -97,7 +107,7 @@
             // buttonChangeDir
             // 
             this.buttonChangeDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonChangeDir.Location = new System.Drawing.Point(6, 317);
+            this.buttonChangeDir.Location = new System.Drawing.Point(3, 333);
             this.buttonChangeDir.Name = "buttonChangeDir";
             this.buttonChangeDir.Size = new System.Drawing.Size(75, 23);
             this.buttonChangeDir.TabIndex = 2;
@@ -131,7 +141,7 @@
             // 
             this.splitContainerFiles.Panel2.Controls.Add(this.panelFiles);
             this.splitContainerFiles.Panel2MinSize = 0;
-            this.splitContainerFiles.Size = new System.Drawing.Size(1024, 345);
+            this.splitContainerFiles.Size = new System.Drawing.Size(1002, 362);
             this.splitContainerFiles.SplitterDistance = 270;
             this.splitContainerFiles.TabIndex = 4;
             // 
@@ -145,7 +155,7 @@
             this.panelDirectories.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDirectories.Location = new System.Drawing.Point(0, 0);
             this.panelDirectories.Name = "panelDirectories";
-            this.panelDirectories.Size = new System.Drawing.Size(270, 345);
+            this.panelDirectories.Size = new System.Drawing.Size(270, 362);
             this.panelDirectories.TabIndex = 4;
             // 
             // panelFiles
@@ -162,7 +172,7 @@
             this.panelFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFiles.Location = new System.Drawing.Point(0, 0);
             this.panelFiles.Name = "panelFiles";
-            this.panelFiles.Size = new System.Drawing.Size(750, 345);
+            this.panelFiles.Size = new System.Drawing.Size(728, 362);
             this.panelFiles.TabIndex = 11;
             // 
             // checkBoxShowMasked
@@ -186,7 +196,7 @@
             this.dataGridViewFiles.Name = "dataGridViewFiles";
             this.dataGridViewFiles.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGridViewFiles.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridViewFiles.Size = new System.Drawing.Size(741, 253);
+            this.dataGridViewFiles.Size = new System.Drawing.Size(716, 269);
             this.dataGridViewFiles.TabIndex = 9;
             // 
             // buttonSelectInvert
@@ -260,7 +270,7 @@
             // 
             this.buttonCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreate.Location = new System.Drawing.Point(946, 91);
+            this.buttonCreate.Location = new System.Drawing.Point(921, 166);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(75, 23);
             this.buttonCreate.TabIndex = 4;
@@ -320,12 +330,17 @@
             // splitContainerActions.Panel2
             // 
             this.splitContainerActions.Panel2.Controls.Add(this.panelActions);
-            this.splitContainerActions.Size = new System.Drawing.Size(1024, 466);
-            this.splitContainerActions.SplitterDistance = 345;
+            this.splitContainerActions.Size = new System.Drawing.Size(1002, 564);
+            this.splitContainerActions.SplitterDistance = 362;
             this.splitContainerActions.TabIndex = 5;
             // 
             // panelActions
             // 
+            this.panelActions.Controls.Add(this.buttonCommandClear);
+            this.panelActions.Controls.Add(this.buttonCommandGet);
+            this.panelActions.Controls.Add(this.buttonCommandReplace);
+            this.panelActions.Controls.Add(this.buttonCommandAdd);
+            this.panelActions.Controls.Add(this.tabControlCommands);
             this.panelActions.Controls.Add(this.buttonCommandDelete);
             this.panelActions.Controls.Add(this.buttonCommandMoveDown);
             this.panelActions.Controls.Add(this.buttonCommandMoveUp);
@@ -334,42 +349,13 @@
             this.panelActions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelActions.Location = new System.Drawing.Point(0, 0);
             this.panelActions.Name = "panelActions";
-            this.panelActions.Size = new System.Drawing.Size(1024, 117);
+            this.panelActions.Size = new System.Drawing.Size(1002, 198);
             this.panelActions.TabIndex = 5;
-            // 
-            // listBoxCommands
-            // 
-            this.listBoxCommands.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxCommands.FormattingEnabled = true;
-            this.listBoxCommands.Location = new System.Drawing.Point(732, 3);
-            this.listBoxCommands.Name = "listBoxCommands";
-            this.listBoxCommands.Size = new System.Drawing.Size(208, 108);
-            this.listBoxCommands.TabIndex = 5;
-            // 
-            // buttonCommandMoveUp
-            // 
-            this.buttonCommandMoveUp.Location = new System.Drawing.Point(946, 3);
-            this.buttonCommandMoveUp.Name = "buttonCommandMoveUp";
-            this.buttonCommandMoveUp.Size = new System.Drawing.Size(50, 23);
-            this.buttonCommandMoveUp.TabIndex = 6;
-            this.buttonCommandMoveUp.Text = "Up";
-            this.buttonCommandMoveUp.UseVisualStyleBackColor = true;
-            this.buttonCommandMoveUp.Click += new System.EventHandler(this.buttonCommandMoveUp_Click);
-            // 
-            // buttonCommandMoveDown
-            // 
-            this.buttonCommandMoveDown.Location = new System.Drawing.Point(946, 28);
-            this.buttonCommandMoveDown.Name = "buttonCommandMoveDown";
-            this.buttonCommandMoveDown.Size = new System.Drawing.Size(50, 23);
-            this.buttonCommandMoveDown.TabIndex = 7;
-            this.buttonCommandMoveDown.Text = "Down";
-            this.buttonCommandMoveDown.UseVisualStyleBackColor = true;
-            this.buttonCommandMoveDown.Click += new System.EventHandler(this.buttonCommandMoveDown_Click);
             // 
             // buttonCommandDelete
             // 
-            this.buttonCommandDelete.Location = new System.Drawing.Point(946, 53);
+            this.buttonCommandDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCommandDelete.Location = new System.Drawing.Point(921, 53);
             this.buttonCommandDelete.Name = "buttonCommandDelete";
             this.buttonCommandDelete.Size = new System.Drawing.Size(50, 23);
             this.buttonCommandDelete.TabIndex = 8;
@@ -377,11 +363,141 @@
             this.buttonCommandDelete.UseVisualStyleBackColor = true;
             this.buttonCommandDelete.Click += new System.EventHandler(this.buttonCommandDelete_Click);
             // 
+            // buttonCommandMoveDown
+            // 
+            this.buttonCommandMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCommandMoveDown.Location = new System.Drawing.Point(921, 28);
+            this.buttonCommandMoveDown.Name = "buttonCommandMoveDown";
+            this.buttonCommandMoveDown.Size = new System.Drawing.Size(50, 23);
+            this.buttonCommandMoveDown.TabIndex = 7;
+            this.buttonCommandMoveDown.Text = "Down";
+            this.buttonCommandMoveDown.UseVisualStyleBackColor = true;
+            this.buttonCommandMoveDown.Click += new System.EventHandler(this.buttonCommandMoveDown_Click);
+            // 
+            // buttonCommandMoveUp
+            // 
+            this.buttonCommandMoveUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCommandMoveUp.Location = new System.Drawing.Point(921, 3);
+            this.buttonCommandMoveUp.Name = "buttonCommandMoveUp";
+            this.buttonCommandMoveUp.Size = new System.Drawing.Size(50, 23);
+            this.buttonCommandMoveUp.TabIndex = 6;
+            this.buttonCommandMoveUp.Text = "Up";
+            this.buttonCommandMoveUp.UseVisualStyleBackColor = true;
+            this.buttonCommandMoveUp.Click += new System.EventHandler(this.buttonCommandMoveUp_Click);
+            // 
+            // listBoxCommands
+            // 
+            this.listBoxCommands.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxCommands.FormattingEnabled = true;
+            this.listBoxCommands.Location = new System.Drawing.Point(707, 3);
+            this.listBoxCommands.Name = "listBoxCommands";
+            this.listBoxCommands.Size = new System.Drawing.Size(208, 186);
+            this.listBoxCommands.TabIndex = 5;
+            // 
+            // tabControlCommands
+            // 
+            this.tabControlCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlCommands.Controls.Add(this.tabPageMacro);
+            this.tabControlCommands.Controls.Add(this.tabPageInsert);
+            this.tabControlCommands.Controls.Add(this.tabPageRemove);
+            this.tabControlCommands.Controls.Add(this.tabPageChangeCase);
+            this.tabControlCommands.Location = new System.Drawing.Point(1, 4);
+            this.tabControlCommands.Name = "tabControlCommands";
+            this.tabControlCommands.SelectedIndex = 0;
+            this.tabControlCommands.Size = new System.Drawing.Size(619, 185);
+            this.tabControlCommands.TabIndex = 9;
+            // 
+            // tabPageInsert
+            // 
+            this.tabPageInsert.Location = new System.Drawing.Point(4, 22);
+            this.tabPageInsert.Name = "tabPageInsert";
+            this.tabPageInsert.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageInsert.Size = new System.Drawing.Size(633, 81);
+            this.tabPageInsert.TabIndex = 0;
+            this.tabPageInsert.Text = "Insert";
+            this.tabPageInsert.UseVisualStyleBackColor = true;
+            // 
+            // tabPageMacro
+            // 
+            this.tabPageMacro.Location = new System.Drawing.Point(4, 22);
+            this.tabPageMacro.Name = "tabPageMacro";
+            this.tabPageMacro.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageMacro.Size = new System.Drawing.Size(611, 159);
+            this.tabPageMacro.TabIndex = 1;
+            this.tabPageMacro.Text = "Macro";
+            this.tabPageMacro.UseVisualStyleBackColor = true;
+            // 
+            // tabPageRemove
+            // 
+            this.tabPageRemove.Location = new System.Drawing.Point(4, 22);
+            this.tabPageRemove.Name = "tabPageRemove";
+            this.tabPageRemove.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageRemove.Size = new System.Drawing.Size(633, 81);
+            this.tabPageRemove.TabIndex = 2;
+            this.tabPageRemove.Text = "Remove";
+            this.tabPageRemove.UseVisualStyleBackColor = true;
+            // 
+            // tabPageChangeCase
+            // 
+            this.tabPageChangeCase.Location = new System.Drawing.Point(4, 22);
+            this.tabPageChangeCase.Name = "tabPageChangeCase";
+            this.tabPageChangeCase.Size = new System.Drawing.Size(633, 81);
+            this.tabPageChangeCase.TabIndex = 3;
+            this.tabPageChangeCase.Text = "Change Case";
+            this.tabPageChangeCase.UseVisualStyleBackColor = true;
+            // 
+            // buttonCommandAdd
+            // 
+            this.buttonCommandAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCommandAdd.Location = new System.Drawing.Point(626, 3);
+            this.buttonCommandAdd.Name = "buttonCommandAdd";
+            this.buttonCommandAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonCommandAdd.TabIndex = 10;
+            this.buttonCommandAdd.Text = "Add";
+            this.buttonCommandAdd.UseVisualStyleBackColor = true;
+            this.buttonCommandAdd.Click += new System.EventHandler(this.buttonCommandAdd_Click);
+            // 
+            // buttonCommandReplace
+            // 
+            this.buttonCommandReplace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCommandReplace.Location = new System.Drawing.Point(627, 33);
+            this.buttonCommandReplace.Name = "buttonCommandReplace";
+            this.buttonCommandReplace.Size = new System.Drawing.Size(75, 23);
+            this.buttonCommandReplace.TabIndex = 11;
+            this.buttonCommandReplace.Text = "Replace";
+            this.buttonCommandReplace.UseVisualStyleBackColor = true;
+            this.buttonCommandReplace.Click += new System.EventHandler(this.buttonCommandReplace_Click);
+            // 
+            // buttonCommandGet
+            // 
+            this.buttonCommandGet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCommandGet.Location = new System.Drawing.Point(627, 63);
+            this.buttonCommandGet.Name = "buttonCommandGet";
+            this.buttonCommandGet.Size = new System.Drawing.Size(75, 23);
+            this.buttonCommandGet.TabIndex = 12;
+            this.buttonCommandGet.Text = "Get";
+            this.buttonCommandGet.UseVisualStyleBackColor = true;
+            this.buttonCommandGet.Click += new System.EventHandler(this.buttonCommandGet_Click);
+            // 
+            // buttonCommandClear
+            // 
+            this.buttonCommandClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCommandClear.Location = new System.Drawing.Point(627, 93);
+            this.buttonCommandClear.Name = "buttonCommandClear";
+            this.buttonCommandClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonCommandClear.TabIndex = 13;
+            this.buttonCommandClear.Text = "Clear All";
+            this.buttonCommandClear.UseVisualStyleBackColor = true;
+            this.buttonCommandClear.Click += new System.EventHandler(this.buttonCommandClear_Click);
+            // 
             // JRenamerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1048, 490);
+            this.ClientSize = new System.Drawing.Size(1026, 588);
             this.Controls.Add(this.splitContainerActions);
             this.MinimumSize = new System.Drawing.Size(400, 300);
             this.Name = "JRenamerForm";
@@ -402,6 +518,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerActions)).EndInit();
             this.splitContainerActions.ResumeLayout(false);
             this.panelActions.ResumeLayout(false);
+            this.tabControlCommands.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -436,6 +553,15 @@
         private System.Windows.Forms.Button buttonCommandDelete;
         private System.Windows.Forms.Button buttonCommandMoveDown;
         private System.Windows.Forms.Button buttonCommandMoveUp;
+        private System.Windows.Forms.TabControl tabControlCommands;
+        private System.Windows.Forms.TabPage tabPageInsert;
+        private System.Windows.Forms.TabPage tabPageMacro;
+        private System.Windows.Forms.TabPage tabPageRemove;
+        private System.Windows.Forms.TabPage tabPageChangeCase;
+        private System.Windows.Forms.Button buttonCommandAdd;
+        private System.Windows.Forms.Button buttonCommandClear;
+        private System.Windows.Forms.Button buttonCommandGet;
+        private System.Windows.Forms.Button buttonCommandReplace;
     }
 }
 

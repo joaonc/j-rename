@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,23 +41,28 @@ namespace JRenamer
             }
         }
 
-        public string Execute(string fileName)
+        public DirectoryFileName Execute(string fileNameFull)
+        {
+            return Execute(new DirectoryFileName(fileNameFull));
+        }
+
+        public DirectoryFileName Execute(DirectoryFileName directoryFileName)
         {
             IEnumerator<ICommand> enumerator = Commands.GetEnumerator();
             while(enumerator.MoveNext())
             {
-                fileName = enumerator.Current.Execute(fileName);
+                directoryFileName = enumerator.Current.Execute(directoryFileName);
             }
 
-            return fileName;
+            return directoryFileName;
         }
 
-        public string ExecuteAndRemoveAll(string fileName)
+        public DirectoryFileName ExecuteAndRemoveAll(DirectoryFileName fileNameFull)
         {
-            fileName = Execute(fileName);
+            fileNameFull = Execute(fileNameFull);
             Clear();
 
-            return fileName;
+            return fileNameFull;
         }
 
         public void Clear()

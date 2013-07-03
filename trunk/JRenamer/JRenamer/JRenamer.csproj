@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="CommandAgent.cs" />
     <Compile Include="CommandInsert.cs" />
+    <Compile Include="DirectoryFileName.cs" />
     <Compile Include="FilesOperator.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="JRenamerForm.cs">

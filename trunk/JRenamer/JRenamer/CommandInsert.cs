@@ -29,9 +29,11 @@ namespace JRenamer
             return Description;
         }
 
-        public string Execute(string currentName)
+        public DirectoryFileName Execute(DirectoryFileName directoryFileName)
         {
-            return currentName.Insert(startIndex, valueInsert);
+            return new DirectoryFileName(
+                directoryFileName.DirectoryName,
+                directoryFileName.FileName.Insert(startIndex, valueInsert));
         }
     }
 }
