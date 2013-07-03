@@ -104,5 +104,23 @@ namespace JRenamer
                 NotifyPropertyChanged();
             }
         }
+
+        public void Add(ICommand command)
+        {
+            if (command != null)
+            {
+                Commands.Add(command);
+                NotifyPropertyChanged();
+            }
+        }
+
+        public void Insert(int index, ICommand command)
+        {
+            if (command != null)
+            {
+                Commands.Insert(index, command);
+                NotifyPropertyChanged();
+            }
+        }
     }
 }

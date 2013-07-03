@@ -45,8 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandAgent.cs" />
-    <Compile Include="Commands\CommandInsert.cs" />
-    <Compile Include="Commands\CommandInsertType.cs" />
+    <Compile Include="Commands\CommandInsertByPosition.cs" />
+    <Compile Include="Commands\CommandInsertByText.cs" />
     <Compile Include="DirectoryFileName.cs" />
     <Compile Include="FilesOperator.cs" />
     <Compile Include="ICommand.cs" />
@@ -57,6 +57,12 @@
     <Compile Include="JRenamerForm.Designer.cs">
       <DependentUpon>JRenamerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\UserControlChangeCase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\UserControlChangeCase.Designer.cs">
+      <DependentUpon>UserControlChangeCase.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\UserControlCommandInsert.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -65,8 +71,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\UserControlCommandMacro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\UserControlCommandMacro.Designer.cs">
+      <DependentUpon>UserControlCommandMacro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserControlCommandRemove.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\UserControlCommandRemove.Designer.cs">
+      <DependentUpon>UserControlCommandRemove.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="JRenamerForm.resx">
       <DependentUpon>JRenamerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UserControlChangeCase.resx">
+      <DependentUpon>UserControlChangeCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UserControlCommandInsert.resx">
       <DependentUpon>UserControlCommandInsert.cs</DependentUpon>
@@ -81,6 +102,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\UserControlCommandRemove.resx">
+      <DependentUpon>UserControlCommandRemove.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

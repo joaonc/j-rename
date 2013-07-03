@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace JRenamer
 {
-    public class CommandInsert : ICommand
+    public class CommandInsertByPosition : ICommand
     {
         private string description;
         private int startIndex;
         private string valueInsert;
-        public CommandInsertType CommandInsertType { get; set; }
 
-        public CommandInsert(int startIndex, string value)
+        public CommandInsertByPosition(int startIndex, string value)
         {
-            CommandInsertType = CommandInsertType.ByPosition;
             description = string.Format("Insert \"{0}\" at pos {1}", value, startIndex);
             this.startIndex = startIndex;
             valueInsert = value;

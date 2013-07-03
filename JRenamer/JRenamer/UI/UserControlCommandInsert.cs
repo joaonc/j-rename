@@ -19,7 +19,20 @@ namespace JRenamer
 
         public ICommand GetCommand()
         {
-            return null;
+            ICommand command;
+
+            if (radioButtonByPosition.Checked)
+            {
+                // Insert by position
+                command = new CommandInsertByPosition(0, "TXT");
+            }
+            else
+            {
+                // Insert by text
+                command = new CommandInsertByText("bla", true, "TTT");
+            }
+
+            return command;
         }
     }
 }
