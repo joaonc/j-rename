@@ -15,6 +15,10 @@ namespace JRenamer
         public UserControlCommandInsert()
         {
             InitializeComponent();
+
+            panelByText.Location = panelByPosition.Location;
+
+            SetPanelTextState();
         }
 
         public ICommand GetCommand()
@@ -24,15 +28,28 @@ namespace JRenamer
             if (radioButtonByPosition.Checked)
             {
                 // Insert by position
-                command = new CommandInsertByPosition(0, "TXT");
+                command = new CommandInsertByPosition((int)numericUpDownInsert.Value, textBoxInsert.Text);
             }
             else
             {
                 // Insert by text
-                command = new CommandInsertByText("bla", true, "TTT");
+                command = new CommandInsertByText(textBoxSearch.Text, radioButtonTextBefore.Checked, textBoxInsert.Text);
             }
 
             return command;
+        }
+
+        private void radioButtonByText_CheckedChanged(object sender, EventArgs e)
+        {
+            SetPanelTextState();
+        }
+
+        private void SetPanelTextState()
+        {
+            bool byPosition = radioButtonByPosition.Checked;
+
+            panelByPosition.Visible = byPosition;
+            panelByText.Visible = !byPosition;
         }
     }
 }
