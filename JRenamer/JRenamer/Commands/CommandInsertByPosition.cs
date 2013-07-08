@@ -14,6 +14,11 @@ namespace JRenamer
 
         public CommandInsertByPosition(int startIndex, string value)
         {
+            if (string.IsNullOrEmpty(value))
+                throw new CommandInvalidException("Need text to insert.");
+            if (startIndex < 0)
+                throw new CommandInvalidException("Start index needs to be 0 or greater.");
+
             description = string.Format("Insert \"{0}\" at pos {1}", value, startIndex);
             this.startIndex = startIndex;
             valueInsert = value;

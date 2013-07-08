@@ -148,8 +148,22 @@ namespace JRenamer
 
         private void buttonCommandAdd_Click(object sender, EventArgs e)
         {
-            ICommand command = ((ICommandFactory)tabControlCommands.SelectedTab.Controls[0]).GetCommand();
-            filesOperator.CommandAgent.Add(command);
+            try
+            {
+                ICommand command = ((ICommandFactory)tabControlCommands.SelectedTab.Controls[0]).GetCommand();
+                filesOperator.CommandAgent.Add(command);
+            }
+            catch (Exception ex)
+            {
+                if (ex is CommandInvalidException)
+                {
+                    MessageBox.Show(((CommandInvalidException)ex).Message, "Command invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message, "Error getting the command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void buttonCommandReplace_Click(object sender, EventArgs e)

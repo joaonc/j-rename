@@ -15,7 +15,12 @@ namespace JRenamer
 
         public CommandInsertByText(string atText, bool before, string value)
         {
-            description = string.Format("Insert \"{0}\" {1} text {2}", value, before ? "before" : "after", atText);
+            if (string.IsNullOrEmpty(value))
+                throw new CommandInvalidException("Need text to insert.");
+            if (string.IsNullOrEmpty(atText))
+                throw new CommandInvalidException("Need text to search.");
+
+            description = string.Format("Insert \"{0}\" {1} text \"{2}\"", value, before ? "before" : "after", atText);
             this.atText = atText;
             this.before = before;
             valueInsert = value;
