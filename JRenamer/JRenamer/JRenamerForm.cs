@@ -59,7 +59,7 @@ namespace JRenamer
         private void Commands_ListChanged(object sender, PropertyChangedEventArgs e)
         {
             listBoxCommands.DataSource = null;
-            listBoxCommands.DataSource = filesOperator.CommandAgent.Commands;
+            listBoxCommands.DataSource = filesOperator.CommandAgent.Commands;            
         }
 
         /// <summary>
@@ -179,6 +179,18 @@ namespace JRenamer
         private void buttonCommandClear_Click(object sender, EventArgs e)
         {
             filesOperator.CommandAgent.Clear();
+        }
+
+        private void buttonDescription_Click(object sender, EventArgs e)
+        {
+            StringBuilder description = new StringBuilder();
+
+            foreach (ICommand command in listBoxCommands.Items.Cast<ICommand>())
+            {
+                description.AppendLine(command.Description);
+            }
+
+            MessageBox.Show(description.ToString(), "Commands");
         }
     }
 }

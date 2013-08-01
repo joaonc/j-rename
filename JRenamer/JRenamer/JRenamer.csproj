@@ -45,9 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandAgent.cs" />
+    <Compile Include="CommandApplyTo.cs" />
     <Compile Include="CommandInvalidException.cs" />
     <Compile Include="Commands\CommandInsertByPosition.cs" />
     <Compile Include="Commands\CommandInsertByText.cs" />
+    <Compile Include="Commands\CommandRemoveByPosition.cs" />
     <Compile Include="DirectoryFileName.cs" />
     <Compile Include="FilesOperator.cs" />
     <Compile Include="ICommand.cs" />
