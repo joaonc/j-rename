@@ -47,6 +47,16 @@ namespace JRenamer
             }
         }
 
+        public string FileNameWithoutExtension
+        {
+            get { return Path.GetFileNameWithoutExtension(FileName); }
+        }
+
+        public string Extension
+        {
+            get { return Path.GetExtension(FileName); }
+        }
+
         public string DirectoryName
         {
             get { return directoryName; }

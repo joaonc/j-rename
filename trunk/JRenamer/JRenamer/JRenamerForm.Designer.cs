@@ -64,12 +64,13 @@
             this.tabPageRemove = new System.Windows.Forms.TabPage();
             this.userControlCommandRemove = new JRenamer.UserControlCommandRemove();
             this.tabPageChangeCase = new System.Windows.Forms.TabPage();
+            this.userControlChangeCase = new JRenamer.UserControlChangeCase();
             this.buttonCommandDelete = new System.Windows.Forms.Button();
             this.buttonCommandMoveDown = new System.Windows.Forms.Button();
             this.buttonCommandMoveUp = new System.Windows.Forms.Button();
             this.listBoxCommands = new System.Windows.Forms.ListBox();
             this.buttonCreate = new System.Windows.Forms.Button();
-            this.userControlChangeCase = new JRenamer.UserControlChangeCase();
+            this.buttonDescription = new System.Windows.Forms.Button();
             this.contextMenuStripCreate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerActions)).BeginInit();
             this.splitContainerActions.Panel1.SuspendLayout();
@@ -332,6 +333,7 @@
             // 
             // panelActions
             // 
+            this.panelActions.Controls.Add(this.buttonDescription);
             this.panelActions.Controls.Add(this.buttonCommandClear);
             this.panelActions.Controls.Add(this.buttonCommandGet);
             this.panelActions.Controls.Add(this.buttonCommandReplace);
@@ -480,6 +482,16 @@
             this.tabPageChangeCase.Text = "Change Case";
             this.tabPageChangeCase.UseVisualStyleBackColor = true;
             // 
+            // userControlChangeCase
+            // 
+            this.userControlChangeCase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userControlChangeCase.Location = new System.Drawing.Point(0, 0);
+            this.userControlChangeCase.Name = "userControlChangeCase";
+            this.userControlChangeCase.Size = new System.Drawing.Size(611, 159);
+            this.userControlChangeCase.TabIndex = 0;
+            // 
             // buttonCommandDelete
             // 
             this.buttonCommandDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -535,15 +547,17 @@
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
-            // userControlChangeCase
+            // buttonDescription
             // 
-            this.userControlChangeCase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.userControlChangeCase.Location = new System.Drawing.Point(0, 0);
-            this.userControlChangeCase.Name = "userControlChangeCase";
-            this.userControlChangeCase.Size = new System.Drawing.Size(611, 159);
-            this.userControlChangeCase.TabIndex = 0;
+            this.buttonDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDescription.Location = new System.Drawing.Point(921, 137);
+            this.buttonDescription.Name = "buttonDescription";
+            this.buttonDescription.Size = new System.Drawing.Size(75, 23);
+            this.buttonDescription.TabIndex = 14;
+            this.buttonDescription.Text = "Description";
+            this.buttonDescription.UseVisualStyleBackColor = true;
+            this.buttonDescription.Click += new System.EventHandler(this.buttonDescription_Click);
             // 
             // JRenamerForm
             // 
@@ -622,6 +636,7 @@
         private UserControlCommandMacro userControlCommandMacro;
         private UserControlCommandRemove userControlCommandRemove;
         private UserControlChangeCase userControlChangeCase;
+        private System.Windows.Forms.Button buttonDescription;
     }
 }
 
