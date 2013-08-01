@@ -40,6 +40,9 @@ namespace JRenamer
         {
             int startIndex = directoryFileName.FileName.IndexOf(atText);
 
+            if (startIndex == -1)
+                return directoryFileName;  // Do nothing if the text wasn't found
+
             if (!before)
                 startIndex++;
 
