@@ -21,6 +21,10 @@ namespace JRenamer
 
         private void FilesForm_Load(object sender, EventArgs e)
         {
+            // Files Mask
+            comboBoxMask.Items.Add(new DropDownItem("All Files", true, "*.*"));
+            comboBoxMask.SelectedIndex = 0;
+
             // Files
             filesOperator = new FilesOperator();
 

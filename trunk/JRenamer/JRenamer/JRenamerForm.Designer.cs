@@ -52,25 +52,25 @@
             this.comboBoxMask = new System.Windows.Forms.ComboBox();
             this.labelSelect = new System.Windows.Forms.Label();
             this.panelActions = new System.Windows.Forms.Panel();
+            this.buttonDescription = new System.Windows.Forms.Button();
             this.buttonCommandClear = new System.Windows.Forms.Button();
             this.buttonCommandGet = new System.Windows.Forms.Button();
             this.buttonCommandReplace = new System.Windows.Forms.Button();
             this.buttonCommandAdd = new System.Windows.Forms.Button();
             this.tabControlCommands = new System.Windows.Forms.TabControl();
             this.tabPageMacro = new System.Windows.Forms.TabPage();
-            this.userControlCommandMacro = new JRenamer.UserControlCommandMacro();
             this.tabPageInsert = new System.Windows.Forms.TabPage();
-            this.panelCommandInsert = new JRenamer.UserControlCommandInsert();
             this.tabPageRemove = new System.Windows.Forms.TabPage();
-            this.userControlCommandRemove = new JRenamer.UserControlCommandRemove();
             this.tabPageChangeCase = new System.Windows.Forms.TabPage();
-            this.userControlChangeCase = new JRenamer.UserControlChangeCase();
             this.buttonCommandDelete = new System.Windows.Forms.Button();
             this.buttonCommandMoveDown = new System.Windows.Forms.Button();
             this.buttonCommandMoveUp = new System.Windows.Forms.Button();
             this.listBoxCommands = new System.Windows.Forms.ListBox();
             this.buttonCreate = new System.Windows.Forms.Button();
-            this.buttonDescription = new System.Windows.Forms.Button();
+            this.userControlCommandMacro = new JRenamer.UserControlCommandMacro();
+            this.panelCommandInsert = new JRenamer.UserControlCommandInsert();
+            this.userControlCommandRemove = new JRenamer.UserControlCommandRemove();
+            this.userControlChangeCase = new JRenamer.UserControlChangeCase();
             this.contextMenuStripCreate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerActions)).BeginInit();
             this.splitContainerActions.Panel1.SuspendLayout();
@@ -319,7 +319,6 @@
             this.comboBoxMask.Name = "comboBoxMask";
             this.comboBoxMask.Size = new System.Drawing.Size(121, 21);
             this.comboBoxMask.TabIndex = 2;
-            this.comboBoxMask.Text = "*.*";
             this.comboBoxMask.TextChanged += new System.EventHandler(this.comboBoxMask_TextChanged);
             // 
             // labelSelect
@@ -349,6 +348,18 @@
             this.panelActions.Name = "panelActions";
             this.panelActions.Size = new System.Drawing.Size(1002, 198);
             this.panelActions.TabIndex = 5;
+            // 
+            // buttonDescription
+            // 
+            this.buttonDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDescription.Location = new System.Drawing.Point(921, 137);
+            this.buttonDescription.Name = "buttonDescription";
+            this.buttonDescription.Size = new System.Drawing.Size(75, 23);
+            this.buttonDescription.TabIndex = 14;
+            this.buttonDescription.Text = "Description";
+            this.buttonDescription.UseVisualStyleBackColor = true;
+            this.buttonDescription.Click += new System.EventHandler(this.buttonDescription_Click);
             // 
             // buttonCommandClear
             // 
@@ -420,16 +431,6 @@
             this.tabPageMacro.Text = "Macro";
             this.tabPageMacro.UseVisualStyleBackColor = true;
             // 
-            // userControlCommandMacro
-            // 
-            this.userControlCommandMacro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.userControlCommandMacro.Location = new System.Drawing.Point(0, 0);
-            this.userControlCommandMacro.Name = "userControlCommandMacro";
-            this.userControlCommandMacro.Size = new System.Drawing.Size(611, 159);
-            this.userControlCommandMacro.TabIndex = 0;
-            // 
             // tabPageInsert
             // 
             this.tabPageInsert.Controls.Add(this.panelCommandInsert);
@@ -440,16 +441,6 @@
             this.tabPageInsert.TabIndex = 0;
             this.tabPageInsert.Text = "Insert";
             this.tabPageInsert.UseVisualStyleBackColor = true;
-            // 
-            // panelCommandInsert
-            // 
-            this.panelCommandInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelCommandInsert.Location = new System.Drawing.Point(0, 0);
-            this.panelCommandInsert.Name = "panelCommandInsert";
-            this.panelCommandInsert.Size = new System.Drawing.Size(611, 159);
-            this.panelCommandInsert.TabIndex = 0;
             // 
             // tabPageRemove
             // 
@@ -462,16 +453,6 @@
             this.tabPageRemove.Text = "Remove";
             this.tabPageRemove.UseVisualStyleBackColor = true;
             // 
-            // userControlCommandRemove
-            // 
-            this.userControlCommandRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.userControlCommandRemove.Location = new System.Drawing.Point(0, 0);
-            this.userControlCommandRemove.Name = "userControlCommandRemove";
-            this.userControlCommandRemove.Size = new System.Drawing.Size(611, 159);
-            this.userControlCommandRemove.TabIndex = 0;
-            // 
             // tabPageChangeCase
             // 
             this.tabPageChangeCase.Controls.Add(this.userControlChangeCase);
@@ -481,16 +462,6 @@
             this.tabPageChangeCase.TabIndex = 3;
             this.tabPageChangeCase.Text = "Change Case";
             this.tabPageChangeCase.UseVisualStyleBackColor = true;
-            // 
-            // userControlChangeCase
-            // 
-            this.userControlChangeCase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.userControlChangeCase.Location = new System.Drawing.Point(0, 0);
-            this.userControlChangeCase.Name = "userControlChangeCase";
-            this.userControlChangeCase.Size = new System.Drawing.Size(611, 159);
-            this.userControlChangeCase.TabIndex = 0;
             // 
             // buttonCommandDelete
             // 
@@ -547,17 +518,45 @@
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
-            // buttonDescription
+            // userControlCommandMacro
             // 
-            this.buttonDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDescription.Location = new System.Drawing.Point(921, 137);
-            this.buttonDescription.Name = "buttonDescription";
-            this.buttonDescription.Size = new System.Drawing.Size(75, 23);
-            this.buttonDescription.TabIndex = 14;
-            this.buttonDescription.Text = "Description";
-            this.buttonDescription.UseVisualStyleBackColor = true;
-            this.buttonDescription.Click += new System.EventHandler(this.buttonDescription_Click);
+            this.userControlCommandMacro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userControlCommandMacro.Location = new System.Drawing.Point(0, 0);
+            this.userControlCommandMacro.Name = "userControlCommandMacro";
+            this.userControlCommandMacro.Size = new System.Drawing.Size(611, 159);
+            this.userControlCommandMacro.TabIndex = 0;
+            // 
+            // panelCommandInsert
+            // 
+            this.panelCommandInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelCommandInsert.Location = new System.Drawing.Point(0, 0);
+            this.panelCommandInsert.Name = "panelCommandInsert";
+            this.panelCommandInsert.Size = new System.Drawing.Size(611, 159);
+            this.panelCommandInsert.TabIndex = 0;
+            // 
+            // userControlCommandRemove
+            // 
+            this.userControlCommandRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userControlCommandRemove.Location = new System.Drawing.Point(0, 0);
+            this.userControlCommandRemove.Name = "userControlCommandRemove";
+            this.userControlCommandRemove.Size = new System.Drawing.Size(611, 159);
+            this.userControlCommandRemove.TabIndex = 0;
+            // 
+            // userControlChangeCase
+            // 
+            this.userControlChangeCase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userControlChangeCase.Location = new System.Drawing.Point(0, 0);
+            this.userControlChangeCase.Name = "userControlChangeCase";
+            this.userControlChangeCase.Size = new System.Drawing.Size(611, 159);
+            this.userControlChangeCase.TabIndex = 0;
             // 
             // JRenamerForm
             // 
