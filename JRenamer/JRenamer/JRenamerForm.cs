@@ -21,10 +21,6 @@ namespace JRenamer
 
         private void FilesForm_Load(object sender, EventArgs e)
         {
-            // Files Mask
-            comboBoxMask.Items.Add(new DropDownItem("All Files", true, "*.*"));
-            comboBoxMask.SelectedIndex = 0;
-
             // Files
             filesOperator = new FilesOperator();
 
@@ -52,6 +48,13 @@ namespace JRenamer
 #else
             files.CurrentDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 #endif
+            // Files Mask
+            comboBoxMask.Items.Add(new DropDownItem("All Files", true, "*.*"));
+            comboBoxMask.Items.Add(new DropDownItem("All Images", false, "*.jpg", ".jpeg", "*.png", "*.tif", "*.tiff", "*.gif", "*.bmp"));
+            comboBoxMask.Items.Add(new DropDownItem("jpegs", false, "*.jpg", ".jpeg"));
+            comboBoxMask.Items.Add(new DropDownItem("png", false, "*.png"));
+            comboBoxMask.SelectedIndex = 0;
+
             RefreshDirectory();
 
             // Commands
@@ -78,6 +81,20 @@ namespace JRenamer
             listBoxDirectory.Items.AddRange(filesOperator.GetSubDirectories(false));
         }
 
+        /// <summary>
+        /// Gets the file masking string.
+        /// </summary>
+        /// <returns>A string with the file mask (ex. "*.*")</returns>
+        private string GetFileMaskAsString()
+        {
+            return ((DropDownItem)comboBoxMask.SelectedItem).GetMaskAsString();
+        }
+
+        private List<string> GetFileMask()
+        {
+            return ((DropDownItem)comboBoxMask.SelectedItem).MaskList;
+        }
+
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             contextMenuStripCreate.Show(buttonCreate, 0, buttonCreate.Height);
@@ -85,7 +102,7 @@ namespace JRenamer
 
         private void comboBoxMask_TextChanged(object sender, EventArgs e)
         {
-            filesOperator.Mask = comboBoxMask.Text;
+            filesOperator.Mask = GetFileMask();
         }
 
         private void buttonSelectAll_Click(object sender, EventArgs e)

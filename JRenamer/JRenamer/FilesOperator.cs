@@ -32,37 +32,40 @@ namespace JRenamer
     public class FilesOperator
     {
         private string currentDirectory;
-        private string mask;
+        private List<string> mask;
         private bool showMaskedFiles;
         private DataTable dtFiles;
         private CommandAgent commandAgent;
 
         public FilesOperator()
         {
-            Initiate(null, null);
+            Initialize(null, null);
         }
 
         public FilesOperator(string directory)
         {
-            Initiate(directory, null);
+            Initialize(directory, null);
         }
 
-        public FilesOperator(string directory, string mask)
+        public FilesOperator(string directory, params string[] mask)
         {
-            Initiate(directory, mask);
+            Initialize(directory, mask);
         }
 
-        private void Initiate(string directory, string mask)
+        private void Initialize(string directory, params string[] mask)
         {
             if (string.IsNullOrEmpty(directory))
                 currentDirectory = Directory.GetCurrentDirectory();
             else
                 currentDirectory = directory;
 
-            if (string.IsNullOrEmpty(Mask))
-                this.mask = "*.*";
+            if (mask == null || mask.Length == 0)
+            {
+                this.mask = new List<string>();
+                this.mask.Add("*.*");
+            }
             else
-                this.mask = mask;
+                this.mask = mask.ToList<string>();
 
             FilesData = new DataTable();
             FilesData.Columns.AddRange(new DataColumn[]
@@ -105,16 +108,16 @@ namespace JRenamer
             }
         }
 
-        public string Mask
+        /// <summary>
+        /// File mask. It's a list that can hold multiple masks.
+        /// </summary>
+        public List<string> Mask
         {
             get { return mask; }
             set
             {
-                if (!mask.Equals(value))
-                {
-                    mask = value;
-                    RefreshFiles();
-                }
+                mask = value;
+                RefreshFiles();
             }
         }
 
@@ -140,9 +143,12 @@ namespace JRenamer
             FilesData.Rows.Clear();
 
             DirectoryInfo di = new DirectoryInfo(CurrentDirectory);
-            foreach (FileInfo fi in di.GetFiles(Mask))
+            foreach (string fileMask in Mask)
             {
-                FilesData.Rows.Add(true, true, fi.Name, null, CurrentDirectory, null);
+                foreach (FileInfo fi in di.GetFiles(fileMask))
+                {
+                    FilesData.Rows.Add(true, true, fi.Name, null, CurrentDirectory, null);
+                }
             }
         }
 

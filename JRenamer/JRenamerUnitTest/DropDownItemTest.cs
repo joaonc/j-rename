@@ -11,7 +11,7 @@ namespace JRenamerUnitTest
         private string maskAll = "*.*";
 
         [TestMethod]
-        public void ToStringTest1()
+        public void ToString1()
         {
             DropDownItem item = new DropDownItem(descriptionTest, false, maskAll);
 
@@ -19,7 +19,7 @@ namespace JRenamerUnitTest
         }
 
         [TestMethod]
-        public void ToStringTest2()
+        public void ToString2()
         {
             DropDownItem item = new DropDownItem(descriptionTest, true, maskAll);
 
@@ -27,7 +27,7 @@ namespace JRenamerUnitTest
         }
 
         [TestMethod]
-        public void ToStringTest3()
+        public void ToString3()
         {
             DropDownItem item = new DropDownItem(descriptionTest, false, "*.1", "*.2");
 
@@ -35,7 +35,7 @@ namespace JRenamerUnitTest
         }
 
         [TestMethod]
-        public void ToStringTest4()
+        public void ToString4()
         {
             DropDownItem item = new DropDownItem(descriptionTest, true, "*.1", "*.2");
 
