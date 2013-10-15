@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using JRenamer;
+using Jdn45Common;
 
 namespace JRenamerUnitTest
 {
@@ -72,11 +73,24 @@ namespace JRenamerUnitTest
         }
 
         [TestMethod]
-        public void AddFiles()
+        public void GetFiles1_All()
         {
             FilesOperator filesOperator = new FilesOperator(directory);
-            filesOperator.GetFiles(false, false);
+            string[] filesFromMask = filesOperator.GetFiles(false, false);
 
+            Assert.IsTrue(CollectionUtil<string>.HaveSameElements(new List<string>(files), new List<string>(filesFromMask)));
+        }
+
+        [TestMethod]
+        public void GetFiles2_OneFile_LowercaseExtension()
+        {
+            FilesOperator filesOperator = new FilesOperator(directory, "*.txt");
+            string[] filesFromMask = filesOperator.GetFiles(false, false);
+
+            List<string> expectedFiles = new List<string>();
+            expectedFiles.Add("Text File.txt");
+
+            Assert.IsTrue(CollectionUtil<string>.HaveSameElements(expectedFiles, new List<string>(filesFromMask)));
         }
     }
 }

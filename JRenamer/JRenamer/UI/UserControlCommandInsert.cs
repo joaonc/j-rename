@@ -28,7 +28,7 @@ namespace JRenamer
             if (radioButtonByPosition.Checked)
             {
                 // Insert by position
-                command = new CommandInsertByPosition((int)numericUpDownInsert.Value, textBoxInsert.Text);
+                command = new CommandInsertByPosition((int)numericUpDownInsert.Value, BeginningEnd.Beginning, textBoxInsert.Text);
             }
             else
             {

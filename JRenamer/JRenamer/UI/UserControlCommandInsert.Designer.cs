@@ -33,13 +33,13 @@
             this.radioButtonTextBefore = new System.Windows.Forms.RadioButton();
             this.radioButtonTextAfter = new System.Windows.Forms.RadioButton();
             this.panelByText = new System.Windows.Forms.Panel();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.labelTextToSearch = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.labelTextToInsert = new System.Windows.Forms.Label();
             this.textBoxInsert = new System.Windows.Forms.TextBox();
             this.panelByPosition = new System.Windows.Forms.Panel();
-            this.numericUpDownInsert = new System.Windows.Forms.NumericUpDown();
             this.labelPositionToInsert = new System.Windows.Forms.Label();
+            this.numericUpDownInsert = new System.Windows.Forms.NumericUpDown();
             this.panelByText.SuspendLayout();
             this.panelByPosition.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInsert)).BeginInit();
@@ -103,15 +103,6 @@
             this.panelByText.Size = new System.Drawing.Size(202, 91);
             this.panelByText.TabIndex = 4;
             // 
-            // textBoxSearch
-            // 
-            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSearch.Location = new System.Drawing.Point(3, 63);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(196, 20);
-            this.textBoxSearch.TabIndex = 4;
-            // 
             // labelTextToSearch
             // 
             this.labelTextToSearch.AutoSize = true;
@@ -120,6 +111,15 @@
             this.labelTextToSearch.Size = new System.Drawing.Size(75, 13);
             this.labelTextToSearch.TabIndex = 5;
             this.labelTextToSearch.Text = "Text to search";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSearch.Location = new System.Drawing.Point(3, 63);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(196, 20);
+            this.textBoxSearch.TabIndex = 4;
             // 
             // labelTextToInsert
             // 
@@ -150,13 +150,6 @@
             this.panelByPosition.Size = new System.Drawing.Size(65, 91);
             this.panelByPosition.TabIndex = 7;
             // 
-            // numericUpDownInsert
-            // 
-            this.numericUpDownInsert.Location = new System.Drawing.Point(3, 24);
-            this.numericUpDownInsert.Name = "numericUpDownInsert";
-            this.numericUpDownInsert.Size = new System.Drawing.Size(55, 20);
-            this.numericUpDownInsert.TabIndex = 0;
-            // 
             // labelPositionToInsert
             // 
             this.labelPositionToInsert.AutoSize = true;
@@ -165,6 +158,13 @@
             this.labelPositionToInsert.Size = new System.Drawing.Size(44, 13);
             this.labelPositionToInsert.TabIndex = 1;
             this.labelPositionToInsert.Text = "Position";
+            // 
+            // numericUpDownInsert
+            // 
+            this.numericUpDownInsert.Location = new System.Drawing.Point(3, 24);
+            this.numericUpDownInsert.Name = "numericUpDownInsert";
+            this.numericUpDownInsert.Size = new System.Drawing.Size(55, 20);
+            this.numericUpDownInsert.TabIndex = 0;
             // 
             // UserControlCommandInsert
             // 

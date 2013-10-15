@@ -43,8 +43,8 @@ namespace JRenamer
 
 #if DEBUG
             filesOperator.CurrentDirectory = @"C:\Users\Public\Shared\Documents\Posts";
-            filesOperator.CommandAgent.Commands.Add(new CommandInsertByPosition(0, "test"));
-            filesOperator.CommandAgent.Commands.Add(new CommandInsertByPosition(3, "X"));
+            filesOperator.CommandAgent.Commands.Add(new CommandInsertByPosition(0, BeginningEnd.Beginning, "test"));
+            filesOperator.CommandAgent.Commands.Add(new CommandInsertByPosition(3, BeginningEnd.Beginning, "X"));
 #else
             files.CurrentDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 #endif
