@@ -12,15 +12,6 @@ namespace JRenamer
     /// </summary>
     public class DirectoryFileName
     {
-        public static string[] GetDirectoryAndFileName(string fileFullName)
-        {
-            return new string[] 
-            {
-                Path.GetFullPath(fileFullName),
-                Path.GetFileName(fileFullName)
-            };
-        }
-
         private string fileName;
         private string directoryName;
 
@@ -32,9 +23,7 @@ namespace JRenamer
 
         public DirectoryFileName(string fileFullName)
         {
-            string[] directoryAndFileName = GetDirectoryAndFileName(fileFullName);
-            DirectoryName = directoryAndFileName[0];
-            FileName = directoryAndFileName[1];
+            FullName = fileFullName;
         }
 
         public string FileName
@@ -71,9 +60,8 @@ namespace JRenamer
             }
             set
             {
-                string[] fileFullName = GetDirectoryAndFileName(value);
-                DirectoryName = fileFullName[0];
-                FileName = fileFullName[1];
+                DirectoryName = Path.GetDirectoryName(value);
+                FileName = Path.GetFileName(value);
             }
         }
 

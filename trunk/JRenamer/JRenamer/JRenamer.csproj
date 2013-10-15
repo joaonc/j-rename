@@ -61,6 +61,8 @@
     <Compile Include="JRenamerForm.Designer.cs">
       <DependentUpon>JRenamerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Options\BeforeAfter.cs" />
+    <Compile Include="Options\BeginningEnd.cs" />
     <Compile Include="UI\UserControlChangeCase.cs">
       <SubType>UserControl</SubType>
     </Compile>

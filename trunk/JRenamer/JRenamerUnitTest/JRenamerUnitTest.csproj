@@ -36,7 +36,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
     <Reference Include="System.XML" />
   </ItemGroup>
   <Choose>
@@ -52,11 +51,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Commands\CommandInsertByPositionTest.cs" />
     <Compile Include="DropDownItemTest.cs" />
     <Compile Include="FilesOperatorUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DirectoryFileNameTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Jdn45Common\Jdn45Common\Jdn45Common.csproj">
+      <Project>{2a5edea8-e018-493e-9fc5-ecd5903665b9}</Project>
+      <Name>Jdn45Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JRenamer\JRenamer.csproj">
       <Project>{93baef81-a450-4730-8c56-6e6a38a27684}</Project>
       <Name>JRenamer</Name>
