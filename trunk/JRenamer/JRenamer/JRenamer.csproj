@@ -52,8 +52,6 @@
     <Compile Include="Commands\CommandRemoveByPosition.cs" />
     <Compile Include="DirectoryFileName.cs" />
     <Compile Include="DropDownItem.cs" />
-    <Compile Include="DropDownItemList.cs" />
-    <Compile Include="FileMask.cs" />
     <Compile Include="FilesOperator.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="ICommandFactory.cs" />
